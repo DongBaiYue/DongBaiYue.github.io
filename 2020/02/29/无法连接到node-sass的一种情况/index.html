@@ -231,7 +231,6 @@
         <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>当我在yilia文件夹下使用npm install命令或是npm i note-sass时，显示以下错误：<br><img src="https://raw.githubusercontent.com/DongBaiYue/tupian/master/img/%E6%8D%95%E8%8E%B7.JPG" alt="问题描述"></p>
 <p>浏览器访问上图显示的网站：<a href="https://npm.taobao.org/mirrors/node-sass//v3.13.1/win32-x64-72_binding.node" target="_blank" rel="noopener">https://npm.taobao.org/mirrors/node-sass//v3.13.1/win32-x64-72_binding.node</a> 网页显示：Not Found</p>
 <a id="more"></a>
-
 <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>网络上关于这个问题的解决方法多是：网址无法连接是由于github被墙了，需要更换国内的镜像源(如淘宝)或是使用cnpm。但我尝试了几个小时还是一样的结果，报错(如上图)，后来看到参考博客试了下才明白怎么回事。</p>
 <p>从上图可以看出需要下载v3.13.1的win32-x64-72_binding.node，但我查看了v3.13.1的各种版本发现win32-x64最高版本也只有-51_binding.node，根本没有-72版本！</p>
 <p>原因出在项目下的package.json文件，该文件规定了要配置程序的版本号，比如note-sass的v3.13.1版本，而适合我的电脑(win10-64位)的是-72版本，因此配置程序时会自动加载v3.13.1的win32-x64-72版本，但这却是一个无效的加载源。</p>
@@ -371,7 +370,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/03/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/03/07/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -665,5 +664,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+// <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-// MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>

@@ -11,12 +11,12 @@
   <meta name="description" content="写在前面： 半群与幺半群">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HIT-近世代数(一)">
-<meta property="og:url" content="https://dongbaiyue.github.io/2020/03/03/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/index.html">
+<meta property="og:url" content="https://dongbaiyue.github.io/2020/03/07/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="东百月的博客">
 <meta property="og:description" content="写在前面： 半群与幺半群">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-03T02:12:21.000Z">
-<meta property="article:modified_time" content="2020-03-03T13:28:49.948Z">
+<meta property="article:published_time" content="2020-03-07T02:12:21.000Z">
+<meta property="article:modified_time" content="2020-03-07T15:42:34.537Z">
 <meta property="article:author" content="1180300308-刘义">
 <meta property="article:tag" content="HIT">
 <meta property="article:tag" content="课程学习">
@@ -170,8 +170,8 @@
 
         
 
-        <a href="/2020/03/03/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/" class="archive-article-date">
-  	<time datetime="2020-03-03T02:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-03</time>
+        <a href="/2020/03/07/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/" class="archive-article-date">
+  	<time datetime="2020-03-07T02:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-07</time>
 </a>
 
          <!-- 开始添加字数统计-->
@@ -181,7 +181,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">93字</span>
+        <span class="post-count">1.2k字</span>
       </span>
     </span>
 
@@ -190,7 +190,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">5分</span>
       </span>
     </span>
 </div>
@@ -227,11 +227,47 @@
 
         <p>写在前面：</p>
 <h1 id="半群与幺半群"><a href="#半群与幺半群" class="headerlink" title="半群与幺半群"></a>半群与幺半群</h1><a id="more"></a>
-
 <h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h4 id="数学归纳法及其证明"><a href="#数学归纳法及其证明" class="headerlink" title="数学归纳法及其证明"></a>数学归纳法及其证明</h4><p><strong>良序原理：</strong></p>
 <p><strong>第一数学归纳法：</strong></p>
 <p><strong>第二数学归纳法：</strong></p>
-<h4 id="映射及其衍生概念"><a href="#映射及其衍生概念" class="headerlink" title="映射及其衍生概念"></a>映射及其衍生概念</h4><h4 id="二元与n元代数运算"><a href="#二元与n元代数运算" class="headerlink" title="二元与n元代数运算"></a>二元与n元代数运算</h4><h4 id="代数系"><a href="#代数系" class="headerlink" title="代数系"></a>代数系</h4><h2 id="半群、幺半群、群的概念"><a href="#半群、幺半群、群的概念" class="headerlink" title="半群、幺半群、群的概念"></a>半群、幺半群、群的概念</h2><h4 id="半群"><a href="#半群" class="headerlink" title="半群"></a>半群</h4><h4 id="幺半群"><a href="#幺半群" class="headerlink" title="幺半群"></a>幺半群</h4><h4 id="群"><a href="#群" class="headerlink" title="群"></a>群</h4><h2 id="子半群、子幺半群和理想"><a href="#子半群、子幺半群和理想" class="headerlink" title="子半群、子幺半群和理想"></a>子半群、子幺半群和理想</h2><h2 id="同态、同构"><a href="#同态、同构" class="headerlink" title="同态、同构"></a>同态、同构</h2><p>待更新</p>
+<h4 id="映射及其衍生概念"><a href="#映射及其衍生概念" class="headerlink" title="映射及其衍生概念"></a>映射及其衍生概念</h4><p><strong>映射：</strong>从集合A到集合B的映射是指，对集合A中的每一个元素，集合B中都有<strong>唯一确定</strong>的元素与之对应。</p>
+<p>合成映射：设$f:A \to B$和$ g:B\to C$都是集合上的映射，则$ f $与$ g $的合成映射为$ g \circ f :A\to C$，对$ \forall a\in A,(g\circ f)(a)=g(f(a))$.</p>
+<p>显然，合成映射满足结合律，$\{h\circ(g\circ f)\}(a)=h(g(f(a)))=\{(h\circ g)\circ f\}(a) $.（注：结合律定义在下面）</p>
+<p><strong>函数：</strong>数集上的映射。</p>
+<p>泛函数：……</p>
+<p><strong>置换：</strong>集合$X$到其本身上的一个双射。</p>
+<p><strong>(二次)笛卡尔积：</strong>又名直积，集合$ X,Y$的笛卡尔积$ X \times Y $为： $\{(x,y)|x\in X,y\in Y \}$.</p>
+<p>n次笛卡尔积：集合$ X $的n次笛卡尔积$ X^n $为：$ \{(x_1,x_2,…,x_n)|x_1\in X,x_2\in X,…,x_n\in X\}$.</p>
+<p><strong>关系：</strong>集合$A$的二次笛卡尔积$A\times A$的每个子集$R$叫做集合$A$上的一个<strong>关系</strong>。如果$(a,b)\in R$，便称$a$和$b$有关系$R$，写作$aRb$.</p>
+<p>等价关系：满足自反性、对称性、传递性的关系，记为$\sim$。</p>
+<p>  （1）自反性：$\forall a\in A,aRa$.</p>
+<p>  （2）对称性：若$aRb$，则$bRa$.</p>
+<p>  （3）传递性：若$aRb,bRc$，则$aRc$.</p>
+<p>等价类：等价类$[a]=\{x|x\in A,x\sim a\}$，即集合$A$中与$a$等价的全部元素构成的集合。</p>
+<h4 id="二元与n元代数运算"><a href="#二元与n元代数运算" class="headerlink" title="二元与n元代数运算"></a>二元与n元代数运算</h4><p><strong>二元代数运算：</strong>集合$X$上的二元代数运算$\circ :X\times X\to X$，即从集合$X$的二次笛卡儿积到集合$X$上的一个映射。</p>
+<p>n元代数运算：集合$X$上的n元代数运算$\circ :X^n\to X$，即从集合$X$的n次笛卡儿积到集合$X$上的一个映射。</p>
+<p>设“$\circ$”是集合$X$上的一个二元代数运算，如果对于$\forall a,b,c\in X,(a\circ b)\circ c=a\circ(b\circ c)$，则称二元代数运算“$ \circ $”满足<strong>结合律</strong>；如果对于$\forall a,b\in X,a\circ b=b\circ a$，则称二元代数运算“$ \circ $”满足<strong>交换率</strong>。</p>
+<h4 id="代数系"><a href="#代数系" class="headerlink" title="代数系"></a>代数系</h4><p>设“$\circ$”是非空集合S上的一个二元代数运算，则称二元组$(S,\circ)$为(有一个二元代数运算的)代数系。即代数系是由一个非空集合和在这个非空集合上的二元代数运算组成。</p>
+<h4 id="一些记号"><a href="#一些记号" class="headerlink" title="　一些记号"></a>　一些记号</h4><p>设$(S,\circ)$是一个代数系，$ A,B\subseteq S $,</p>
+<p>$ AB=A\circ B=\{a\circ b|a\in A,b\in B\} $</p>
+<p>$ ab=a\circ b $</p>
+<p>$ aB=\{a\}\circ B=\{a\circ b|b\in B\} $</p>
+<p>$ Ab=A\circ \{b\}=\{a\circ b|a\in A\} $</p>
+<h2 id="半群、幺半群、群的概念"><a href="#半群、幺半群、群的概念" class="headerlink" title="半群、幺半群、群的概念"></a>半群、幺半群、群的概念</h2><h4 id="半群"><a href="#半群" class="headerlink" title="半群"></a>半群</h4><p><strong>半群：</strong>二元代数运算满足结合率的代数系。</p>
+<p>可换半群：二元代数运算满足交换律的半群。</p>
+<p>有限\无限半群：集合元素有限\无限的半群。</p>
+<p>左幺元：设$(S,\circ)$是一个代数系，如果$\exists a_l\in S$，对$\forall x\in S，a_l\circ x=x$，则称$a_l$为二元代数运算“$\circ$”的左幺元(左单位元)。</p>
+<p>右幺元：设$(S,\circ)$是一个代数系，如果$\exists a_r\in S$，对$\forall x\in S，x\circ a_r=x$，则称$a_r$为二元代数运算“$\circ$”的右幺元(右单位元)。</p>
+<p><strong>幺元：</strong>设$(S,\circ)$是一个代数系，如果$\exists e\in S$，对$\forall x\in S，e\circ x=x\circ e=x$，则称$e$为二元代数运算“$\circ$”的幺元(单位元)，即既是左幺元又是右幺元。</p>
+<p><strong>定理1.1：</strong>设$(S,\circ)$是一个代数系，如果二元代数运算“$\circ$”既有左幺元$a_l$，又有右幺元$a_r$，则$a_l=a_r$，即为幺元。</p>
+<p>证：$a_l\circ a_r=a_r=a_l$.由此也可证明幺元唯一。</p>
+<h4 id="幺半群"><a href="#幺半群" class="headerlink" title="幺半群"></a>幺半群</h4><p><strong>幺半群：</strong>有幺元的半群，记为$(S,\circ,e)$。$S$的基数称为幺半群$(S,\circ，e)$的阶。</p>
+<p><strong>定理1.2：</strong>有限半群$ (S,\circ) $是一个幺半群$\iff$$ \exists s,t\in S$，使$sS=S,St=S $.</p>
+<p>证：$\implies$：有幺元，显然。</p>
+<p>​        $  \impliedby $：先证其存在左幺元，再证其存在右幺元，即可得证。</p>
+<p>设有限半群$ (S,\circ) $的基数为$n$，$s\circ S=S$是$S$上(从$S$到$S$)的一个双射，$S$上的双射共有$n!$种，在元素为双射的序列$s\circ,s\circ (s\circ),\cdots,s^{n!+1}\circ$中，由抽屉原理，必有两个映射相同，不妨设为$s^i\circ ,s^j\circ   (i&lt;j)$，</p>
+<p>$ s^j\circ =s^i\circ \implies s^{j-i}\circ s^i\circ=s^i\circ $，则$s^{j-i}\circ$是$S$上的一个恒等映射，则$s^{j-i}$为左幺元。右幺元证明同理。</p>
+<h4 id="群"><a href="#群" class="headerlink" title="群"></a>群</h4><h2 id="子半群、子幺半群和理想"><a href="#子半群、子幺半群和理想" class="headerlink" title="子半群、子幺半群和理想"></a>子半群、子幺半群和理想</h2><h2 id="同态、同构"><a href="#同态、同构" class="headerlink" title="同态、同构"></a>同态、同构</h2><p>待更新</p>
 
 
       
@@ -245,7 +281,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://dongbaiyue.github.io/2020/03/03/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/
+    https://dongbaiyue.github.io/2020/03/07/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -316,6 +352,16 @@
     </div>
 
     <div class="article-info article-info-index">
+
+      
+
+        <div class="article-pop-out tagcloud">
+
+          <i class="icon-tuding"></i>
+
+          <a class="article-tag-list-link color3">置顶</a>
+
+        </div>
 
       
 
@@ -393,7 +439,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#半群与幺半群"><span class="toc-number">1.</span> <span class="toc-text">半群与幺半群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-number">1.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数学归纳法及其证明"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">数学归纳法及其证明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#映射及其衍生概念"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">映射及其衍生概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二元与n元代数运算"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">二元与n元代数运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代数系"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">代数系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#半群、幺半群、群的概念"><span class="toc-number">1.2.</span> <span class="toc-text">半群、幺半群、群的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#半群"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">半群</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#幺半群"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">幺半群</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#群"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">群</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子半群、子幺半群和理想"><span class="toc-number">1.3.</span> <span class="toc-text">子半群、子幺半群和理想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同态、同构"><span class="toc-number">1.4.</span> <span class="toc-text">同态、同构</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#半群与幺半群"><span class="toc-number">1.</span> <span class="toc-text">半群与幺半群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-number">1.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#数学归纳法及其证明"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">数学归纳法及其证明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#映射及其衍生概念"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">映射及其衍生概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二元与n元代数运算"><span class="toc-number">1.1.0.3.</span> <span class="toc-text">二元与n元代数运算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代数系"><span class="toc-number">1.1.0.4.</span> <span class="toc-text">代数系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一些记号"><span class="toc-number">1.1.0.5.</span> <span class="toc-text">　一些记号</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#半群、幺半群、群的概念"><span class="toc-number">1.2.</span> <span class="toc-text">半群、幺半群、群的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#半群"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">半群</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#幺半群"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">幺半群</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#群"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">群</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子半群、子幺半群和理想"><span class="toc-number">1.3.</span> <span class="toc-text">子半群、子幺半群和理想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同态、同构"><span class="toc-number">1.4.</span> <span class="toc-text">同态、同构</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -647,5 +693,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+// <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-// MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
