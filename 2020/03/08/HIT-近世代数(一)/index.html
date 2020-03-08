@@ -16,7 +16,7 @@
 <meta property="og:description" content="写在前面： 半群与幺半群">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-08T02:12:21.000Z">
-<meta property="article:modified_time" content="2020-03-08T14:20:37.240Z">
+<meta property="article:modified_time" content="2020-03-08T15:04:45.706Z">
 <meta property="article:author" content="1180300308-刘义">
 <meta property="article:tag" content="HIT">
 <meta property="article:tag" content="课程学习">
@@ -320,22 +320,22 @@
 <p><strong>循环半群：</strong>如果一个半群(幺半群)是由其中的某个元素$a$生成的半群(幺半群)，则被称为循环半群(循环幺半群)，记为(a)。</p>
 <p><strong>定理1.：</strong>循环半群(循环幺半群)必是可换半群(幺半群)。</p>
 <p>证明：由$a$生成的循环半群为$\{a^k|\forall k\in N_+\}$，任意一个元素都可表达为$a^k$的形式，$\forall x,y\in(a),xy=a^ia^i=a^{i+j}=a^ja^i=yx$.</p>
-<h2 id="同态、同构"><a href="#同态、同构" class="headerlink" title="同态、同构"></a>同态、同构</h2><p><strong>同构：</strong>设$(S,\circ)$和$(T,<em>)$是两个半群，如果$\exists \varphi：S\to T$是一个双射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)</em>\varphi(y)$，则称半群$(S,\circ)$和$(T,*)$同构，记为$(S,\circ)\cong (T,\circ)$，简记为$S\cong T$。$\varphi$称为从$S$到$T$的一个同构(映射)。</p>
-<p>设$(S,\circ,e)$和$(T,<em>,e’)$是两个幺半群，如果$\exists \varphi：S\to T$是一个双射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)</em>\varphi(y)$，且$\varphi(e)=e’$（这一点并不必要，可由幺半群+前一点推出），则称幺半群$(S,\circ,e)$和$(T,*,e’)$同构，记为$(S,\circ,e)\cong (T,\circ,e’)$，简记为$S\cong T$。$\varphi$称为从$S$到$T$的一个同构(映射)。</p>
+<h2 id="同态、同构"><a href="#同态、同构" class="headerlink" title="同态、同构"></a>同态、同构</h2><p><strong>同构：</strong>设$(S,\circ)$和$(T,\ast) $是两个半群，如果$\exists \varphi：S\to T$是一个双射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，则称半群$(S,\circ)$和$(T,\ast)$同构，记为$(S,\circ)\cong (T,\circ)$，简记为$S\cong T$。$\varphi$称为从$S$到$T$的一个同构(映射)。</p>
+<p>设$(S,\circ,e)$和$(T,\ast,e’)$是两个幺半群，如果$\exists \varphi：S\to T$是一个双射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，且$\varphi(e)=e’$（这一点并不必要，可由幺半群+前一点推出），则称幺半群$(S,\circ,e)$和$(T,\ast ,e’)$同构，记为$(S,\circ,e)\cong (T,\circ,e’)$，简记为$S\cong T$。$\varphi$称为从$S$到$T$的一个同构(映射)。</p>
 <p><strong>定理1.(Cayley定理)：</strong>任何一个幺半群$(M,\circ,e)$同构于变换幺半群$(L(M),\circ,I_m)$。$L(M)$是映射的集合，$L(M)=\{f:M\to c\circ M|\forall c\in M,f(x)=c\circ x\}$，$I_m=\{g:M\to e\circ M\}$。</p>
 <p>证明思路：（1）$L(M)$是一个幺半群（运算封闭、结合律、幺元）（2）双射$h：M\to L(M)$（3）$L(x\circ y)=L(x)\circ L(y)$.</p>
-<p><strong>同态：</strong>设$(S,\circ)$和$(T,<em>)$是两个半群，如果$\exists \varphi：S\to T$，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)</em>\varphi(y)$，则称半群$(S,\circ)$和$(T,*)$同态，$\varphi$称为从$S$到$T$的一个同态(映射)。</p>
-<p>设$(S,\circ,e)$和$(T,<em>,e’)$是两个幺半群，如果$\exists \varphi：S\to T$，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)</em>\varphi(y)$，且$\varphi(e)=e’$（这一点是必要的），则称幺半群$(S,\circ,e)$和$(T,*,e’)$同构，$\varphi$称为从$S$到$T$的一个同态(映射)。</p>
-<p><strong>定理1.：</strong>设$(S,\circ)$是一个半群，$(T,<em>)$是一个具有二元代数运算”$</em>$“的代数系，如果$\exists \varphi：S\to T$是一个满射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)<em>\varphi(y)$，则$(T,</em>)$是一个半群。</p>
-<p>证明思路：把”$*$“变成”$\circ$”即可。</p>
-<p><strong>定理1.：</strong>设$(S,\circ,e)$是一个幺半群，$(T,<em>)$是一个半群，如果$\varphi$是$S$到$T$的满半群同态，则$\varphi(e)$是$T$的单位元，从而$(T,</em>,\varphi(e))$是一个幺半群。</p>
-<p>证明思路：把”$*$“变成”$\circ$”即可。</p>
-<p><strong>定理1.：</strong>设$\varphi$是半群$(S_1,\circ)$到$(S_2,<em>)$的同态，$\psi$是半群$(S_2,</em>)$到$(S_3,\cdot)$的同态，$\psi \circ \varphi$是半群$(S_1,\circ)$到$(S_3,\cdot)$的同态。</p>
+<p><strong>同态：</strong>设$(S,\circ)$和$(T,\ast)$是两个半群，如果$\exists \varphi：S\to T$，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，则称半群$(S,\circ)$和$(T,\ast )$同态，$\varphi$称为从$S$到$T$的一个同态(映射)。</p>
+<p>设$(S,\circ,e)$和$(T,\ast,e’)$是两个幺半群，如果$\exists \varphi：S\to T$，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，且$\varphi(e)=e’$（这一点是必要的），则称幺半群$(S,\circ,e)$和$(T,\ast ,e’)$同构，$\varphi$称为从$S$到$T$的一个同态(映射)。</p>
+<p><strong>定理1.：</strong>设$(S,\circ)$是一个半群，$(T,\ast)$是一个具有二元代数运算”$\ast $“的代数系，如果$\exists \varphi：S\to T$是一个满射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，则$(T,\ast)$是一个半群。</p>
+<p>证明思路：把”$\ast$“变成”$\circ$”即可。</p>
+<p><strong>定理1.：</strong>设$(S,\circ,e)$是一个幺半群，$(T,\ast )$是一个半群，如果$\varphi$是$S$到$T$的满半群同态，则$\varphi(e)$是$T$的单位元，从而$(T,\ast ,\varphi(e))$是一个幺半群。</p>
+<p>证明思路：把”$\ast $“变成”$\circ$”即可。</p>
+<p><strong>定理1.：</strong>设$\varphi$是半群$(S_1,\circ)$到$(S_2,\ast )$的同态，$\psi$是半群$(S_2,\ast )$到$(S_3,\cdot)$的同态，$\psi \circ \varphi$是半群$(S_1,\circ)$到$(S_3,\cdot)$的同态。</p>
 <p>证明思路：把”$\cdot$“变成”$\circ$”即可。</p>
 <p>设$\cong$是代数系$(S,\circ)$上的等价关系，$\forall a,a’,b,b’\in S$，如果 若$a\cong a’$且$b\cong b’$，则必有$a\circ b\cong a’\circ b’$，那么称$\cong$是$S$上的<strong>同余关系</strong>。</p>
-<p>题目：设$(S,\circ)$和$(T,*)$是两个半群，$\varphi$是$S$到$T$的同态，则$\varphi$确定了$S$上的一个等价关系$E_\varphi:\forall x,y\in S,xE_\varphi y\iff\varphi(x)=\varphi(y)$。定义等价类$[a]=\{x|\forall x\in S,xE_\varphi a\}$，$S/E_\varphi$为$S$上所有等价类的集合，定义$S/E_\varphi$上的”$\cdot$“：$[a]\cdot[b]=[a\circ b]$，试证”$\cdot$“是一个二元代数运算。</p>
+<p>题目：设$(S,\circ)$和$(T,\ast )$是两个半群，$\varphi$是$S$到$T$的同态，则$\varphi$确定了$S$上的一个等价关系$E_\varphi:\forall x,y\in S,xE_\varphi y\iff\varphi(x)=\varphi(y)$。定义等价类$[a]=\{x|\forall x\in S,xE_\varphi a\}$，$S/E_\varphi$为$S$上所有等价类的集合，定义$S/E_\varphi$上的”$\cdot$“：$[a]\cdot[b]=[a\circ b]$，试证”$\cdot$“是一个二元代数运算。</p>
 <p>注(与题目无关)：令$r:S\to S/E_\varphi,\forall a\in S，r(a)=[a]$，则称$r$为$S$到$S/E\varphi$的<strong>自然同态</strong>。</p>
-<p><strong>定理1.（幺半群的同态基本定理）：</strong>设$\varphi$是半群$(M_1,\circ,e)$到$(M_2,*,e’)$的同态，则</p>
+<p><strong>定理1.（幺半群的同态基本定理）：</strong>设$\varphi$是半群$(M_1,\circ,e)$到$(M_2,\ast ,e’)$的同态，则</p>
 <p>  （1）同态象$\varphi(M)$是$M’$的一个子幺半群。</p>
 <p>  （2）由$\varphi$确定的等价关系是同余关系，即若$a\cong a’$且$b\cong b’$，则必有$a\circ b\cong a’\circ b’$。于是$\forall [a],[b]\in M/E_\varphi,[a]\cdot[b]=[a\circ b]$是$M/E_\varphi$上的二元代数运算，$(M,\cdot,[e])$是幺半群。</p>
 <p>  （3）存在唯一的$M/E_\varphi$到$M’$的单同态$\overline{\varphi}$使得：$\varphi=\overline{\varphi}\circ r$，其中$r$是$M$到$M/E_\varphi$的自然同态。</p>
@@ -347,7 +347,7 @@
 <p>（4）：由（3）存在$M/E_\varphi$到$M’$的单同态$\overline{\varphi}$，只需证明其是个满射。</p>
 <h2 id="一些习题"><a href="#一些习题" class="headerlink" title="一些习题"></a>一些习题</h2><p>1.证明：有限半群$(S,\circ)$中一定有一个元素$a\in S$，使得$a\circ a=a$.</p>
 <p>2.找一个半群，它有任意有限多个左单位元。</p>
-<p>3.设$(S,\circ,<em>)$是一个具有两个二元代数运算的代数系，如果”$\circ$“和”$</em>$“分别有单位元$e_1,e_2$，并且”$\circ$“对”$<em>$“以及”$</em>$“对”$\circ$“都满足分配律，证明：对$\forall x\in S$，都有$x\circ x=x,x*x=x$.</p>
+<p>3.设$(S,\circ,\ast )$是一个具有两个二元代数运算的代数系，如果”$\circ$“和”$\ast $“分别有单位元$e_1,e_2$，并且”$\circ$“对”$\ast $“以及”$\ast $“对”$\circ$“都满足分配律，证明：对$\forall x\in S$，都有$x\circ x=x,x\ast x=x$.</p>
 
 
       
@@ -773,5 +773,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+// <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-// MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
