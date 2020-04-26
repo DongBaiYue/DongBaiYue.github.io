@@ -6,21 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dongbaiyue.github.io">
-  <title>HIT-近世代数(一) | 东百月的博客</title>
+  <title>测试博客 | 东百月的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在前面： 半群与幺半群">
+  <meta name="description" content="这是一篇测试文章">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HIT-近世代数(一)">
-<meta property="og:url" content="https://dongbaiyue.github.io/2020/03/08/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/index.html">
+<meta property="og:title" content="测试博客">
+<meta property="og:url" content="https://dongbaiyue.github.io/2020/02/28/testBlog/index.html">
 <meta property="og:site_name" content="东百月的博客">
-<meta property="og:description" content="写在前面： 半群与幺半群">
+<meta property="og:description" content="这是一篇测试文章">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-03-08T02:12:21.000Z">
-<meta property="article:modified_time" content="2020-03-08T15:04:45.706Z">
+<meta property="article:published_time" content="2020-02-28T03:12:21.000Z">
+<meta property="article:modified_time" content="2020-02-29T14:05:50.470Z">
 <meta property="article:author" content="1180300308-刘义">
-<meta property="article:tag" content="HIT">
-<meta property="article:tag" content="课程学习">
-<meta property="article:tag" content="近世代数">
+<meta property="article:tag" content="测试">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="东百月的博客" type="application/atom+xml">
@@ -153,7 +151,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HIT-近世代数(一)" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-testBlog" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
 
     
@@ -163,15 +161,15 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HIT-近世代数(一)
+      测试博客
     </h1>
   
 
 
         
 
-        <a href="/2020/03/08/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/" class="archive-article-date">
-  	<time datetime="2020-03-08T02:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-08</time>
+        <a href="/2020/02/28/testBlog/" class="archive-article-date">
+  	<time datetime="2020-02-28T03:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
 </a>
 
          <!-- 开始添加字数统计-->
@@ -181,7 +179,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4k字</span>
+        <span class="post-count">8字</span>
       </span>
     </span>
 
@@ -190,7 +188,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">17分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -225,130 +223,7 @@
 
       
 
-        <p>写在前面：</p>
-<h1 id="半群与幺半群"><a href="#半群与幺半群" class="headerlink" title="半群与幺半群"></a>半群与幺半群</h1><a id="more"></a>
-<h2 id="预备知识"><a href="#预备知识" class="headerlink" title="预备知识"></a>预备知识</h2><h3 id="数学归纳法及其证明"><a href="#数学归纳法及其证明" class="headerlink" title="数学归纳法及其证明"></a>数学归纳法及其证明</h3><p>良序原理：集合$Z_+$的每一个非空子集都有一个最小元素。</p>
-<p><strong>第一数学归纳法：</strong>设$P(n)$是关于正整数$n$的一个命题，如果</p>
-<p>（1）$P(1)$是真的；</p>
-<p>（2）对于每一个正整数$k$，如果$P(k)$是真的，那么$P(k+1)$也是真的。</p>
-<p>那么对于所有的正整数$n$，$P(n)$都是真的。</p>
-<p>证明：反证，设集合$S=\{c|c\in N_+,P(c)$为假$\}$，假设$S$不为空；</p>
-<p>由良序原理，集合$S$有一个最小元素，记为$i$。由于$i$是集合$S$的元素，$P(i)$为假，故$i\neq 1,i\geq2$；由于$i$是集合$S$的最小元素，故$i-1$不在集合$S$中，$P(i-1)$为真，则$P(i)$为真，矛盾，假设不成立，$S$为空。</p>
-<p><strong>第二数学归纳法：</strong>设$P(n)$是关于正整数$n$的一个命题，如果</p>
-<p>（1）$P(1)$是真的；</p>
-<p>（2）对于每一个正整数$k$，如果对于所有正整数$i&lt;k+1$，$P(i)$都是真的，那么$P(k+1)$也是真的。</p>
-<p>那么对于所有的正整数$n$，$P(n)$都是真的。</p>
-<p>证明：大致同上。</p>
-<h3 id="映射及其衍生概念"><a href="#映射及其衍生概念" class="headerlink" title="映射及其衍生概念"></a>映射及其衍生概念</h3><p><strong>映射：</strong>从集合A到集合B的映射是指，对集合A中的每一个元素，集合B中都有<strong>唯一确定</strong>的元素与之对应。</p>
-<p>合成映射：设$f:A \to B$和$ g:B\to C$都是集合上的映射，则$ f $与$ g $的合成映射为$ g \circ f :A\to C$，对$ \forall a\in A,(g\circ f)(a)=g(f(a))$.</p>
-<p>显然，合成映射满足结合律，$\{h\circ(g\circ f)\}(a)=h(g(f(a)))=\{(h\circ g)\circ f\}(a) $.（注：结合律定义在下面）</p>
-<p><strong>函数：</strong>数集上的映射。</p>
-<p>泛函数：……</p>
-<p><strong>置换：</strong>集合$X$到其本身上的一个双射。</p>
-<p><strong>(二次)笛卡尔积：</strong>又名直积，集合$ X,Y$的笛卡尔积$ X \times Y $为： $\{(x,y)|x\in X,y\in Y \}$.</p>
-<p>n次笛卡尔积：集合$ X $的n次笛卡尔积$ X^n $为：$ \{(x_1,x_2,…,x_n)|x_1\in X,x_2\in X,…,x_n\in X\}$.</p>
-<p><strong>关系：</strong>集合$A$的二次笛卡尔积$A\times A$的每个子集$R$叫做集合$A$上的一个<strong>关系</strong>。如果$(a,b)\in R$，便称$a$和$b$有关系$R$，写作$aRb$.</p>
-<p>等价关系：满足自反性、对称性、传递性的关系，记为$\sim$。</p>
-<p>  （1）自反性：$\forall a\in A,aRa$.</p>
-<p>  （2）对称性：若$aRb$，则$bRa$.</p>
-<p>  （3）传递性：若$aRb,bRc$，则$aRc$.</p>
-<p>等价类：等价类$[a]=\{x|x\in A,x\sim a\}$，即集合$A$中与$a$等价的全部元素构成的集合。</p>
-<h3 id="代数运算与代数系"><a href="#代数运算与代数系" class="headerlink" title="代数运算与代数系"></a>代数运算与代数系</h3><p><strong>二元代数运算：</strong>集合$X$上的二元代数运算$\circ :X\times X\to X$，即从集合$X$的二次笛卡儿积到集合$X$上的一个映射。</p>
-<p>n元代数运算：集合$X$上的n元代数运算$\circ :X^n\to X$，即从集合$X$的n次笛卡儿积到集合$X$上的一个映射。</p>
-<p>设“$\circ$”是集合$X$上的一个二元代数运算，如果对于$\forall a,b,c\in X,(a\circ b)\circ c=a\circ(b\circ c)$，则称二元代数运算“$ \circ $”满足<strong>结合律</strong>；如果对于$\forall a,b\in X,a\circ b=b\circ a$，则称二元代数运算“$ \circ $”满足<strong>交换率</strong>。</p>
-<p><strong>代数系</strong></p>
-<p>设“$\circ$”是非空集合S上的一个二元代数运算，则称二元组$(S,\circ)$为(有一个二元代数运算的)代数系。即代数系是由一个非空集合和在这个非空集合上的二元代数运算组成。</p>
-<h3 id="一些记号"><a href="#一些记号" class="headerlink" title="　一些记号"></a>　一些记号</h3><p>设$(S,\circ)$是一个代数系，$ A,B\subseteq S $,</p>
-<p>$ AB=A\circ B=\{a\circ b|a\in A,b\in B\} $</p>
-<p>$ ab=a\circ b $</p>
-<p>$ aB=\{a\}\circ B=\{a\circ b|b\in B\} $</p>
-<p>$ Ab=A\circ \{b\}=\{a\circ b|a\in A\} $</p>
-<h2 id="半群、幺半群、群的概念"><a href="#半群、幺半群、群的概念" class="headerlink" title="半群、幺半群、群的概念"></a>半群、幺半群、群的概念</h2><h3 id="半群"><a href="#半群" class="headerlink" title="半群"></a>半群</h3><p><strong>半群：</strong>二元代数运算满足结合率的代数系。</p>
-<p>可换半群：二元代数运算满足交换律的半群。</p>
-<p>有限\无限半群：集合元素有限\无限的半群。</p>
-<p>左幺元：设$(S,\circ)$是一个代数系，如果$\exists a_l\in S$，对$\forall x\in S，a_l\circ x=x$，则称$a_l$为二元代数运算“$\circ$”的左幺元(左单位元)。</p>
-<p>右幺元：设$(S,\circ)$是一个代数系，如果$\exists a_r\in S$，对$\forall x\in S，x\circ a_r=x$，则称$a_r$为二元代数运算“$\circ$”的右幺元(右单位元)。</p>
-<p><strong>幺元：</strong>设$(S,\circ)$是一个代数系，如果$\exists e\in S$，对$\forall x\in S，e\circ x=x\circ e=x$，则称$e$为二元代数运算“$\circ$”的幺元(单位元)，即既是左幺元又是右幺元。</p>
-<p><strong>定理1.1：</strong>设$(S,\circ)$是一个代数系，如果二元代数运算“$\circ$”既有左幺元$a_l$，又有右幺元$a_r$，则$a_l=a_r$，即为幺元。</p>
-<p>证：$a_l\circ a_r=a_r=a_l$.由此也可证明幺元唯一。</p>
-<h3 id="幺半群"><a href="#幺半群" class="headerlink" title="幺半群"></a>幺半群</h3><p><strong>幺半群：</strong>有幺元的半群，记为$(S,\circ,e)$。$S$的基数称为幺半群$(S,\circ，e)$的阶。</p>
-<p><strong>定理1.2：</strong>有限半群$ (S,\circ) $是一个幺半群$\iff$$ \exists s,t\in S$，使$sS=S,St=S $.</p>
-<p>证：$\implies$：有幺元，显然。</p>
-<p>​        $  \impliedby $：先证其存在左幺元，再证其存在右幺元，即可得证。</p>
-<p>设有限半群$ (S,\circ) $的基数为$n$，$s\circ S=S$，则$s\circ$是$S$上的一个置换，$S$上的置换共有$n!$种，在元素为双射的序列$s\circ,s\circ (s\circ),\cdots,s^{n!+1}\circ$中，由抽屉原理，必有两个置换相同，不妨设为$s^i\circ ,s^j\circ   (i&lt;j)$，</p>
-<p>$ s^j\circ =s^i\circ \implies s^{j-i}\circ s^i\circ=s^i\circ $，则$s^{j-i}\circ$是$S$上的一个恒等置换，则$s^{j-i}$为左幺元。右幺元证明同理。</p>
-<p>证毕。</p>
-<p>元素的幂：在幺半群$(S,\circ,e)$上可以定义元素的非负整数次幂，对于$\forall a\in S,a^0=e,a^{n+1}=a^n\circ a,n\geq 0$.</p>
-<p>显然，$a^m\circ a^n=a^{m+n},(a^m)^n=a^{mn}$.</p>
-<p>左逆元素：设$(S,\circ ,e)$是一个幺半群，$x\in S$，如果$\exists a_l\in S$，使得$a_l\circ x=e$，则称$a_l$为$x$(对于二元代数运算“$\circ$”)的左逆元素。</p>
-<p>右逆元素：设$(S,\circ ,e)$是一个幺半群，$x\in S$，如果$\exists a_r\in S$，使得$x\circ a_r=e$，则称$a_r$为$x$(对于二元代数运算“$\circ$”)的右逆元素。（可以对比一下上面的左右幺元）</p>
-<p><strong>逆元素：</strong>设$(S,\circ ,e)$是一个幺半群，$x\in S$，如果$\exists a\in S$，使得$a\circ x=x\circ a=e$，则称$a$为$x$(对于二元代数运算“$\circ$”)的逆元素，记为$x^{-1}$，即既是左逆元素又是右逆元素。</p>
-<p><strong>定理1.：</strong>如果幺半群$(S,\circ ,e)$中的元素$x$，既有左逆元素$a_l$，又有右逆元素$a_r$，则$a_l=a_r$，于是$x$有逆元素且逆元素唯一。</p>
-<p>证：$a_l\circ x\circ a_r=a_r=a_l$.</p>
-<p><strong>定理1.：</strong>有限半群$ (S,\circ) $是一个群$\iff$对于$\forall s\in S$有$sS=S$，且$ \exists t\in S$使得$St=S $.($\forall ,\exists $反过来也成立)</p>
-<p>证：$\implies$：先证对于$\forall s\in S$有$sS=S$</p>
-<p>对于$\forall s\in S$有$s^{-1}\circ (sS)=(s^{-1}\circ s)S=eS=S$。由代数系的封闭性：$sS\subseteq S，s^{-1}\circ (sS)\subseteq sS$，</p>
-<p>若$sS\subset S$，则$s^{-1}\circ (sS)\subseteq sS\subset S\implies s^{-1}\circ (sS)\subset S\implies S\subset S$，矛盾。</p>
-<p>所以$\forall s\in S$有$sS=S$.</p>
-<p>然后$ \exists e\in S$使得$Se=S $.</p>
-<p>​        $  \impliedby $：由定理1.知对于$\forall s\in S$有$s^{j-i}$为幺元(左右幺元均存在，即为幺元)，则$s^{j-i-1}\circ s=s\circ s^{j-i-1}=e$，$s^{j-i-1}$即为$s$的逆元素。</p>
-<h3 id="群"><a href="#群" class="headerlink" title="群"></a>群</h3><p><strong>群：</strong>每个元素都有逆元素的幺半群成为群。</p>
-<h2 id="子半群、子幺半群和理想"><a href="#子半群、子幺半群和理想" class="headerlink" title="子半群、子幺半群和理想"></a>子半群、子幺半群和理想</h2><p><strong>子半群：</strong>设$(S,\circ)$是一个半群，$B$是$S$的一个非空子集。如果对于$\forall a,b\in B$,都有$a\circ b\in B$，则称代数系$(B,\circ)$是$(S,\circ)$的一个子半群。简称$B$是$S$的一个子半群。</p>
-<p><strong>子幺半群：</strong>设$(S,\circ,e)$是一个幺半群，$P$是$S$的一个子半群。如果$e\in P$，则称$P$是$S$的一个子幺半群。</p>
-<p><strong>定理1.：</strong>一个幺半群的任意多个子幺半群的交集仍是子幺半群。</p>
-<p>证明思路：1.显然包含e，交集非空；2.运算结果同时属于多个子幺半群，因此属于多个子幺半群的交集；3.满足结合律。</p>
-<p><strong>定理1.：</strong>设$(S,\circ)$是一个半群，$A$是$S$的一个非空子集，则$S$的任意多个包含$A$的子半群的交集仍是子半群。</p>
-<p>证明思路：同上。</p>
-<p>设$(S,\circ)$是一个半群，$A$是$S$的一个非空子集，则将$S$的所有包含$A$的子半群的交集称为由$A$<strong>生成</strong>的子半群，记为(A)。设$(S,\circ,e)$是一个幺半群，$A$是$S$的一个非空子集，则将$S$的所有包含$A$的子幺半群的交集称为由$A$<strong>生成</strong>的子幺半群，记为(A)。</p>
-<p><strong>理想：</strong>设$(S,\circ)$是一个半群，$A$是$S$的一个非空子集，如果$SA\subseteq A(AS\subseteq A)$，则称$A$是$S$的一个左(右)理想（$S$在左为左理想，$S$在右为右理想）。如果$A$既是$S$的左理想又是$S$的右理想，则称$A$是$S$的理想。</p>
-<p>设$(S,\circ)$是一个半群，$A$是$S$的一个非空子集，则将$S$的所有包含$A$的左(右)理想的交集称为由$A$<strong>生成</strong>的左(右)理想，将$S$的所有包含$A$的理想的交集称为由$A$<strong>生成</strong>的理想。</p>
-<p><strong>定理1.：</strong>$A$是半群$(S,\circ)$的一个非空子集，则</p>
-<p>  （1）由$A$生成的左理想是$A\bigcup SA$.</p>
-<p>  （2）由$A$生成的右理想是$A\bigcup AS$.</p>
-<p>  （3）由$A$生成的理想是$A\bigcup SA\bigcup AS\bigcup SAS$.</p>
-<p>证明：以（1）为例，不妨记由$A$生成的左理想为$P$，要证$P$=$A\bigcup SA$，只需证明$P\subseteq A\bigcup SA$且$A\bigcup  SA\subseteq P$.</p>
-<p>先证$A\bigcup  SA\subseteq P$，因为$A\subseteq P$，所以$SA\subseteq P$，所以$A\bigcup  SA\subseteq P$.</p>
-<p>再证$P\subseteq A\bigcup SA$，只需证明$A\bigcup SA$为包含$A$的左理想，只需证明$S(A\bigcup SA)\subseteq A\bigcup SA$。</p>
-<p>$SA\subseteq A\bigcup SA$，$S(SA）=(SS)A\subseteq SA\subseteq A\bigcup SA$，则$S(A\bigcup SA)=SA\bigcup S(SA)\subseteq A\bigcup SA$。</p>
-<p>证毕。</p>
-<p><strong>定理1.：</strong>$A$是幺半群$(S,\circ, e)$的一个非空子集，则</p>
-<p>  （1）由$A$生成的左理想是$SA$.</p>
-<p>  （2）由$A$生成的右理想是$AS$.</p>
-<p>  （3）由$A$生成的理想是$SAS$.</p>
-<p>证明：以（1）为例，在上述定理1.的基础上，只需证明$A\subseteq SA$. </p>
-<p>$A=\{e\}A\subseteq SA$.</p>
-<p><strong>循环半群：</strong>如果一个半群(幺半群)是由其中的某个元素$a$生成的半群(幺半群)，则被称为循环半群(循环幺半群)，记为(a)。</p>
-<p><strong>定理1.：</strong>循环半群(循环幺半群)必是可换半群(幺半群)。</p>
-<p>证明：由$a$生成的循环半群为$\{a^k|\forall k\in N_+\}$，任意一个元素都可表达为$a^k$的形式，$\forall x,y\in(a),xy=a^ia^i=a^{i+j}=a^ja^i=yx$.</p>
-<h2 id="同态、同构"><a href="#同态、同构" class="headerlink" title="同态、同构"></a>同态、同构</h2><p><strong>同构：</strong>设$(S,\circ)$和$(T,\ast) $是两个半群，如果$\exists \varphi：S\to T$是一个双射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，则称半群$(S,\circ)$和$(T,\ast)$同构，记为$(S,\circ)\cong (T,\circ)$，简记为$S\cong T$。$\varphi$称为从$S$到$T$的一个同构(映射)。</p>
-<p>设$(S,\circ,e)$和$(T,\ast,e’)$是两个幺半群，如果$\exists \varphi：S\to T$是一个双射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，且$\varphi(e)=e’$（这一点并不必要，可由幺半群+前一点推出），则称幺半群$(S,\circ,e)$和$(T,\ast ,e’)$同构，记为$(S,\circ,e)\cong (T,\circ,e’)$，简记为$S\cong T$。$\varphi$称为从$S$到$T$的一个同构(映射)。</p>
-<p><strong>定理1.(Cayley定理)：</strong>任何一个幺半群$(M,\circ,e)$同构于变换幺半群$(L(M),\circ,I_m)$。$L(M)$是映射的集合，$L(M)=\{f:M\to c\circ M|\forall c\in M,f(x)=c\circ x\}$，$I_m=\{g:M\to e\circ M\}$。</p>
-<p>证明思路：（1）$L(M)$是一个幺半群（运算封闭、结合律、幺元）（2）双射$h：M\to L(M)$（3）$L(x\circ y)=L(x)\circ L(y)$.</p>
-<p><strong>同态：</strong>设$(S,\circ)$和$(T,\ast)$是两个半群，如果$\exists \varphi：S\to T$，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，则称半群$(S,\circ)$和$(T,\ast )$同态，$\varphi$称为从$S$到$T$的一个同态(映射)。</p>
-<p>设$(S,\circ,e)$和$(T,\ast,e’)$是两个幺半群，如果$\exists \varphi：S\to T$，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，且$\varphi(e)=e’$（这一点是必要的），则称幺半群$(S,\circ,e)$和$(T,\ast ,e’)$同构，$\varphi$称为从$S$到$T$的一个同态(映射)。</p>
-<p><strong>定理1.：</strong>设$(S,\circ)$是一个半群，$(T,\ast)$是一个具有二元代数运算”$\ast $“的代数系，如果$\exists \varphi：S\to T$是一个满射，对于$\forall x,y\in S,\varphi(x\circ y)=\varphi(x)\ast \varphi(y)$，则$(T,\ast)$是一个半群。</p>
-<p>证明思路：把”$\ast$“变成”$\circ$”即可。</p>
-<p><strong>定理1.：</strong>设$(S,\circ,e)$是一个幺半群，$(T,\ast )$是一个半群，如果$\varphi$是$S$到$T$的满半群同态，则$\varphi(e)$是$T$的单位元，从而$(T,\ast ,\varphi(e))$是一个幺半群。</p>
-<p>证明思路：把”$\ast $“变成”$\circ$”即可。</p>
-<p><strong>定理1.：</strong>设$\varphi$是半群$(S_1,\circ)$到$(S_2,\ast )$的同态，$\psi$是半群$(S_2,\ast )$到$(S_3,\cdot)$的同态，$\psi \circ \varphi$是半群$(S_1,\circ)$到$(S_3,\cdot)$的同态。</p>
-<p>证明思路：把”$\cdot$“变成”$\circ$”即可。</p>
-<p>设$\cong$是代数系$(S,\circ)$上的等价关系，$\forall a,a’,b,b’\in S$，如果 若$a\cong a’$且$b\cong b’$，则必有$a\circ b\cong a’\circ b’$，那么称$\cong$是$S$上的<strong>同余关系</strong>。</p>
-<p>题目：设$(S,\circ)$和$(T,\ast )$是两个半群，$\varphi$是$S$到$T$的同态，则$\varphi$确定了$S$上的一个等价关系$E_\varphi:\forall x,y\in S,xE_\varphi y\iff\varphi(x)=\varphi(y)$。定义等价类$[a]=\{x|\forall x\in S,xE_\varphi a\}$，$S/E_\varphi$为$S$上所有等价类的集合，定义$S/E_\varphi$上的”$\cdot$“：$[a]\cdot[b]=[a\circ b]$，试证”$\cdot$“是一个二元代数运算。</p>
-<p>注(与题目无关)：令$r:S\to S/E_\varphi,\forall a\in S，r(a)=[a]$，则称$r$为$S$到$S/E\varphi$的<strong>自然同态</strong>。</p>
-<p><strong>定理1.（幺半群的同态基本定理）：</strong>设$\varphi$是半群$(M_1,\circ,e)$到$(M_2,\ast ,e’)$的同态，则</p>
-<p>  （1）同态象$\varphi(M)$是$M’$的一个子幺半群。</p>
-<p>  （2）由$\varphi$确定的等价关系是同余关系，即若$a\cong a’$且$b\cong b’$，则必有$a\circ b\cong a’\circ b’$。于是$\forall [a],[b]\in M/E_\varphi,[a]\cdot[b]=[a\circ b]$是$M/E_\varphi$上的二元代数运算，$(M,\cdot,[e])$是幺半群。</p>
-<p>  （3）存在唯一的$M/E_\varphi$到$M’$的单同态$\overline{\varphi}$使得：$\varphi=\overline{\varphi}\circ r$，其中$r$是$M$到$M/E_\varphi$的自然同态。</p>
-<p>  （4）如果$\varphi$是满同态，则$M/E_\varphi$与$M$同构。</p>
-<p>证明思路：</p>
-<p>（1）证明同态象$\varphi(M)$是是个幺半群即可，关键点在于证明其二元代数运算封闭、满足结合律。</p>
-<p>（2）由同态定义，$\varphi(a\circ b)=\varphi(a)\circ \varphi(b)=\varphi(a’)\circ \varphi(b’)=\varphi(a’\circ b’)$.</p>
-<p>（3）：关键点在于证明$\overline{\varphi}$是个同态。</p>
-<p>（4）：由（3）存在$M/E_\varphi$到$M’$的单同态$\overline{\varphi}$，只需证明其是个满射。</p>
-<h2 id="一些习题"><a href="#一些习题" class="headerlink" title="一些习题"></a>一些习题</h2><p>1.证明：有限半群$(S,\circ)$中一定有一个元素$a\in S$，使得$a\circ a=a$.</p>
-<p>2.找一个半群，它有任意有限多个左单位元。</p>
-<p>3.设$(S,\circ,\ast )$是一个具有两个二元代数运算的代数系，如果”$\circ$“和”$\ast $“分别有单位元$e_1,e_2$，并且”$\circ$“对”$\ast $“以及”$\ast $“对”$\circ$“都满足分配律，证明：对$\forall x\in S$，都有$x\circ x=x,x\ast x=x$.</p>
-
+        <h1 id="这是一篇测试文章"><a href="#这是一篇测试文章" class="headerlink" title="这是一篇测试文章"></a>这是一篇测试文章</h1>
 
       
 
@@ -361,7 +236,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    https://dongbaiyue.github.io/2020/03/08/HIT-%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0(%E4%B8%80)/
+    https://dongbaiyue.github.io/2020/02/28/testBlog/
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -377,71 +252,9 @@
 
       
 
-        <div class="page-reward">
-
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-
-            <div class="tooltip tooltip-east">
-
-            <span class="tooltip-item">
-
-              赏
-
-            </span>
-
-            <span class="tooltip-content">
-
-              <span class="tooltip-text">
-
-                <span class="tooltip-inner">
-
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-
-                  <div class="reward-box">
-
-                    
-
-                    
-
-                    <div class="reward-box-item">
-
-                      <img class="reward-img" src="/assets/img/weixin.png">
-
-                      <span class="reward-type">微信</span>
-
-                    </div>
-
-                    
-
-                  </div>
-
-                </span>
-
-              </span>
-
-            </span>
-
-          </div>
-
-          </a>
-
-        </div>
-
-      
-
     </div>
 
     <div class="article-info article-info-index">
-
-      
-
-        <div class="article-pop-out tagcloud">
-
-          <i class="icon-tuding"></i>
-
-          <a class="article-tag-list-link color3">置顶</a>
-
-        </div>
 
       
 
@@ -451,15 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HIT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">课程学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">近世代数</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
         		</li>
       		
 		</ul>
@@ -488,9 +293,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/02/29/node-sass/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          无法连接到node-sass的一种情况
+        
+      </div>
+    </a>
   
-    <a href="/2020/02/29/%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0node-sass%E7%9A%84%E4%B8%80%E7%A7%8D%E6%83%85%E5%86%B5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">无法连接到node-sass的一种情况</div>
+  
+    <a href="/2020/02/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -511,19 +325,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#半群与幺半群"><span class="toc-number">1.</span> <span class="toc-text">半群与幺半群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预备知识"><span class="toc-number">1.1.</span> <span class="toc-text">预备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数学归纳法及其证明"><span class="toc-number">1.1.1.</span> <span class="toc-text">数学归纳法及其证明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#映射及其衍生概念"><span class="toc-number">1.1.2.</span> <span class="toc-text">映射及其衍生概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代数运算与代数系"><span class="toc-number">1.1.3.</span> <span class="toc-text">代数运算与代数系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些记号"><span class="toc-number">1.1.4.</span> <span class="toc-text">　一些记号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#半群、幺半群、群的概念"><span class="toc-number">1.2.</span> <span class="toc-text">半群、幺半群、群的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#半群"><span class="toc-number">1.2.1.</span> <span class="toc-text">半群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#幺半群"><span class="toc-number">1.2.2.</span> <span class="toc-text">幺半群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#群"><span class="toc-number">1.2.3.</span> <span class="toc-text">群</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子半群、子幺半群和理想"><span class="toc-number">1.3.</span> <span class="toc-text">子半群、子幺半群和理想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#同态、同构"><span class="toc-number">1.4.</span> <span class="toc-text">同态、同构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些习题"><span class="toc-number">1.5.</span> <span class="toc-text">一些习题</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>

@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dongbaiyue.github.io">
-  <title>Archives: 2020/2 | 东百月的博客</title>
+  <title>HIT-软件构造(一) | 东百月的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是东百月的园地">
-<meta property="og:type" content="website">
-<meta property="og:title" content="东百月的博客">
-<meta property="og:url" content="https://dongbaiyue.github.io/archives/2020/02/index.html">
+  <meta name="description" content="：前言本篇内容主要是总结一下MIT6.031课程:Software Construction的阅读材料，以免遗忘。 未完成，待补充。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HIT-软件构造(一)">
+<meta property="og:url" content="https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction(1)/index.html">
 <meta property="og:site_name" content="东百月的博客">
-<meta property="og:description" content="这里是东百月的园地">
+<meta property="og:description" content="：前言本篇内容主要是总结一下MIT6.031课程:Software Construction的阅读材料，以免遗忘。 未完成，待补充。。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-30T03:12:21.000Z">
+<meta property="article:modified_time" content="2020-04-26T14:52:04.870Z">
 <meta property="article:author" content="1180300308-刘义">
+<meta property="article:tag" content="HIT">
+<meta property="article:tag" content="课程学习">
+<meta property="article:tag" content="软件构造">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="东百月的博客" type="application/atom+xml">
@@ -148,133 +153,456 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-HIT-SoftwareConstruction(1)" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/29/node-sass/" class="archive-article-date">
-  	<time datetime="2020-02-29T03:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
-        </div>
-    	 
+
+      <header class="article-header">
+
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/29/node-sass/">无法连接到node-sass的一种情况</a>
+    <h1 class="article-title" itemprop="name">
+      HIT-软件构造(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
+
+        
+
+        <a href="/2020/03/30/HIT-SoftwareConstruction(1)/" class="archive-article-date">
+  	<time datetime="2020-03-30T03:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
+</a>
+
+         <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">4.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">14分</span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           
+          <!-- 添加完成 --> 
+ 
+      
+
+      </header>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+
+      
+
+        <h2 id="："><a href="#：" class="headerlink" title="："></a>：</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本篇内容主要是总结一下<a href="http://web.mit.edu/6.031/www/sp18/" target="_blank" rel="noopener">MIT6.031课程:Software Construction</a>的阅读材料，以免遗忘。</p>
+<p>未完成，待补充。。</p>
+<a id="more"></a>
+<h3 id="Reading-1：静态检查"><a href="#Reading-1：静态检查" class="headerlink" title="Reading 1：静态检查"></a>Reading 1：静态检查</h3><p><strong>类型：</strong>一系列值的集合，以及这些值对应的操作。分为原始类型和对象类型(也称引用类型)。</p>
+<p><strong>静态类型：</strong>指类型检查发生在编译时，Java是一种静态类型的语言。在静态类型语言中，所有变量的类型在编译时就已经知道了，因此编译时可以进行类型检查。</p>
+<p><strong>动态类型：</strong>类型检查发生在程序运行时，例如Python。</p>
+<p><strong>静态检查：</strong>程序运行前进行的检查，静态类型检查是静态检查的一部分。常见的静态检查：</p>
+<ul>
+<li>语法错误，例如多余的标点符号或错误的关键词。</li>
+<li>错误的名字，如错误的方法名。</li>
+<li>参数个数</li>
+<li>参数类型</li>
+<li>错误的返回类型</li>
+</ul>
+<p>静态检查倾向于与特定值无关的错误。</p>
+<p><strong>动态检查：</strong>程序运行中进行的检查。常见的动态检查：</p>
+<ul>
+<li>非法的变量值，如整数除”0”。</li>
+<li>无法表示的返回值。???</li>
+<li>越界访问。</li>
+<li>null对象解引用。</li>
+</ul>
+<p>动态检查倾向于特定值才会触发的错误。</p>
+<p><strong>类型修饰符：</strong></p>
+<p>public：程序任何位置都可以访问。</p>
+<p>private：</p>
+<p>static：只会有一个实例化的对象。</p>
+<p>final：引用不可改变。</p>
+<p><strong>6.031的3个目标：</strong></p>
+<ul>
+<li>safe from bugs(SFB)：远离bug。确保现在和将来都是正确的。</li>
+<li>easy to understand(ETU)：易于理解、易读性。我们必须和将来接手的程序员交流(这也可能是几个月或几年后的你自己)。</li>
+<li>ready for change(RFC)：可改动性。软件总是在更新迭代，一些好的设计可以让改动更容易。</li>
+</ul>
+<p><strong>静态检查与我们的目标的联系：</strong></p>
+<p>远离bug：静态检查可以在运行程序前发现类型错误等bug。</p>
+<p>易读性：所有变量类型在代码中明确定义，便于理解。</p>
+<p>可改动性：静态检查可以在你修改代码时定位出也需要修改的部分。如：当你修改一个变量类型时，编译器立即就会在所有使用这个变量的地方显示错误，提示你也应该修改它们。</p>
+<h3 id="Reading-2：Java基础"><a href="#Reading-2：Java基础" class="headerlink" title="Reading 2：Java基础"></a>Reading 2：Java基础</h3><p>本讲讲述了一些Java基础知识，以及快照图的画法，前者我准备单独去写，后者难以用语言描述，先暂时略过。</p>
+<h3 id="Reading-3：测试"><a href="#Reading-3：测试" class="headerlink" title="Reading 3：测试"></a>Reading 3：测试</h3><p><strong>验证：</strong>验证的目的是发现程序中的问题，以提高你对程序正确性的信心。验证包括：</p>
+<ul>
+<li>形式推理：即通过理论推理证明程序的正确性。</li>
+<li>代码评审：即让别人认真的阅读、审校、评价你的代码。</li>
+<li>测试：即选择合适的输入、输出用例，通过运行程序检查程序问题。</li>
+</ul>
+<p>测试应具备的心态：作为一个测试者，应想方设法让程序崩溃。</p>
+<p><strong>测试优先编程(Test-first Programming)</strong></p>
+<p>在测试优先编程中，测试程序优先于代码完成，编写函数的步骤是：</p>
+<ol>
+<li>为函数写一个规格说明</li>
+<li>为上一步写出的规格说明写一些测试用例</li>
+<li>编写实际代码。一旦代码通过了所有测试用例，这个函数就算完成了。</li>
+</ol>
+<p>规格说明：描述了函数的输入输出功能。它确定了函数参数的类型和对他们的所有约束(如sqrt函数的参数应是非负的)、返回值类型以及返回值与输入的关系。在代码中，规格说明包括函数签名和一些描述函数功能的注释。</p>
+<p><strong>通过分区的方法选择测试用例</strong></p>
+<p>测试思想：通过尽可能少的测试用例(以便快速完成测试)，验证尽可能多的情况。</p>
+<p>分区：将输入空间划分为几个子空间，每个子空间内都是相似的数据，我们在每个子空间内选取一些数据，合并起来就是我们需要的测试用例。其原理是相似的数据在程序中的行为类似，所以我们可以用一小部分代表整体。</p>
+<p>注意分区的边界：bug经常在各个分区之间的边界处发生，例如：</p>
+<ul>
+<li>在正整数和负整数之间的0</li>
+<li>数字类型(如int、double)的最大、最小值</li>
+<li>空集，如空的字符串、列表、数组</li>
+<li>集合类型中的第一个或最后一个元素</li>
+</ul>
+<p>覆盖分区的两个极限情况：</p>
+<ul>
+<li>完全笛卡尔乘积</li>
+<li>每个分区被覆盖一次即可</li>
+</ul>
+<p>实际测试中我们经常基于实际情况在两个极限中折中。</p>
+<p><strong>JUnit自动化单元测试</strong></p>
+<p>在测试某个方法时应记录下测试策略，例如分区、特殊值、边界值等：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *Testing strategy</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<p>另外，每个测试用例都要有一个小的注解，告诉读者这个测试用例代表我们测试策略的哪一部分，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//covers </span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<p><strong>黑盒测试与白盒测试</strong></p>
+<p>黑盒测试：只依据函数的规格说明来选择测试用例，而不关心函数是如何实现的。</p>
+<p>白盒测试：在考虑函数的具体实现方法的前提下选择测试用例。例如，如果在函数的实现中，对不同输入采用不同处理方式，那么应根据这些不同的输入区域进行分类。</p>
+<p><strong>覆盖率</strong></p>
+<p>覆盖率：测试对程序的测试程度。常见的覆盖率有：</p>
+<ul>
+<li>声明/语句覆盖率：每一个声明/语句都被测试了吗？</li>
+<li>分支覆盖率：每一个分支都被测试了吗？即每个判断取真或假至少各一次。</li>
+<li>路径覆盖率：每一种分支的组合路径都被测试了吗？即覆盖所有可能的路径。</li>
+</ul>
+<p>其中，分支覆盖率比语句覆盖率严格(需要更多测试)，路径覆盖率比分支覆盖率严格。</p>
+<p><strong>单元测试vs集成测试和桩</strong></p>
+<p>单元测试：对孤立的模块进行测试。bug的范围小。</p>
+<p>集成测试：对组合起来的模块进行测试。bug的范围大，但仍然是必要的，因为程序经常因为模块间的交互产生bug。另外，如果我们已经完成单元测试，一定程度上确保各个模块孤立的正确性，那么bug的范围也会小很多。</p>
+<p>桩(stubs)：一种代替调用模块以确保测试模块孤立性的手段。</p>
+<p><strong>自动化测试和回归测试</strong></p>
+<p>自动化测试：自动地运行测试对象，输入对应的测试用例，并记录结果的测试。</p>
+<p>回归测试：称修改代码后带来新的bug的现象为“回归”，修改代码后重新运行所有的测试为“回归测试”。</p>
+<p>自动化回归测试：回归测试与自动化测试相结合，一个best-practice(最佳实践).</p>
+<p><strong>与我们的目标的联系：</strong></p>
+<ul>
+<li>远离bug。测试的意义在于发现程序中的bug，而“测试优先编程”的价值在于尽可能早地发现这些bug。</li>
+<li>易读性。注意正确书写测试用例。</li>
+<li>可改动性。当我们修改程序后，自动化回归测试能够帮助我们杜绝新的bug产生。</li>
+</ul>
+<h3 id="Reading-4：代码评审"><a href="#Reading-4：代码评审" class="headerlink" title="Reading 4：代码评审"></a>Reading 4：代码评审</h3><p>章节内容：$\begin{cases}代码评审：阅读并讨论别人写的代码\\好代码的书写原则 \end{cases}$</p>
+<p><strong>代码评审</strong></p>
+<p>代码评审的目的：$\begin{cases}提升代码质量\\提升程序员的水平\end{cases}$</p>
+<p>风格标准：大多数公司或者大的项目都会要求代码有统一的风格标准，本章下面内容将讨论一些与我们的目标（远离bug、易读性、可改动性）息息相关的代码风格。</p>
+<ul>
+<li>别写重复的代码（Don’t Repeat Yourself）</li>
+</ul>
+<p>别重复代码（<a href="https://zh.wikipedia.org/wiki/一次且仅一次" target="_blank" rel="noopener">Don’t Repeat Yourself</a>）简称为DRY，是面向对象编程的基本原则。如果一段代码在几个不同的地方出现，那么当你修改这段代码时，你需要修改所有包含这段代码的区域，这样无形中增加了维护成本和发生bug的几率。把重复的代码抽象提取出来，这样当改动代码时只需要改动一处。</p>
+<ul>
+<li>仅在需要的地方注释</li>
+</ul>
+<p>好的注释会使得代码易于修改，远离bug（因为一些重要的设想已经写出来了），并且减小了改动的难度。一些重要的注释包括规格说明、代码引用声明等。</p>
+<p>需要注意的是仅在需要的地方注释。应当假定注释的阅读者是掌握这门程序语言的编程人员，若代码对阅读者而言是容易理解的，则不需要注释；反之则需要。</p>
+<ul>
+<li>快速报错/失败（Fail-fast）</li>
+</ul>
+<p>快速报错是指代码应该尽可能快/早的将其中的bug暴露出来。因为问题暴露的越早（越接近bug所在区域），其修复工作也会越容易。静态检查 早于 动态检查 早于 产生错误结果。</p>
+<ul>
+<li>避免幻数</li>
+</ul>
+<p>代码中1和0以外的常数被称为“幻数”，因为它们好像不知道从哪突然冒出来一样。解决幻数的一个办法就是写注释，但是另一个更好的办法是声明一个具有合理名字的常量。</p>
+<ul>
+<li>每个变量有且仅有一个目的</li>
+</ul>
+<p>不要重利用参数，也不要重利用变量。在现在的计算机中，变量不是一个稀缺的资源。当你需要的时候就声明一个（命名一个易理解的名字），不需要它的时候就停止使用。如果你的变量在前面几行代表一个意思，在后面又代表另一个意思，你的读者会很困惑的。</p>
+<p>特别地，方法的参数不应该被修改（这和“易改动性”相关——在未来这个方法的某一部分可能会想知道参数传进来的初始值，因此你就不应该在半路修改它）。所以应该使用<code>final</code>关键词修饰参数（这样Java编译器就会对它进行静态检查，防止重引用），然后在方法内部声明其他的变量使用。</p>
+<ul>
+<li>使用好的名称</li>
+</ul>
+<p>好的方法名和变量名应当能够自我解释，具有明确的描述性，要做到这些往往需要比较长的命名。</p>
+<p>在Java中，命名传统：</p>
+<p>方法：<a href="https://baike.baidu.com/item/骆驼命名法/7794053?fr=aladdin&amp;fromid=7560610&amp;fromtitle=驼峰命名法" target="_blank" rel="noopener">驼峰命名法</a>；<code>methodsAreNamedWithCamelCaseLikeThis</code> </p>
+<p>变量：驼峰命名法；<code>variablesAreAlsoCamelCase</code></p>
+<p>常量：全大写，单词之间用<code>_</code>连接；<code>CONSTANTS_ARE_IN_ALL_CAPS_WITH_UNDERSCORES</code></p>
+<p>类：首字母大写，<code>ClassesAreCapitalized</code></p>
+<p>在保证含义清晰的前提下，命名应尽量简洁，但要避免使用缩写（除非这种缩写是公认的）。</p>
+<ul>
+<li>使用空格提高可读性</li>
+</ul>
+<p>在代码行中添加一些一致的空格有助于人们的阅读。</p>
+<p>需要注意的是，不要使用<code>\t</code>字符来代替空格，因为不同的工具在显示<code>\t</code>字符的时候长度不一样，有的是8个空格，有的是4个空格，有的是2个空格，所以不同的编辑器看同一份代码很可能就会显示的不一样。</p>
+<ul>
+<li>不要使用全局变量</li>
+</ul>
+<p>全局变量意味着可以被程序的任何地方访问。下面列举了几个全局变量的缺点（并非全部）：</p>
+<ul>
+<li>[ ] 任何方法都可能修改全局变量，容易发生意料之外的错误，且调试困难。</li>
+<li>[ ] 容易造成命名冲突。</li>
+<li>[ ] 破坏了函数的封装。</li>
+<li>[ ] 难以并发。</li>
+</ul>
+<p>当然，我们可以使用全局常量。全局常量可以在任何位置读取，但是永远不会改变，因此风险也就没有了。</p>
+<ul>
+<li>方法应该返回结果，而不是打印它</li>
+</ul>
+<p>通常来说，只有最高层的代码才会处理与人/控制台的交互，其余代码并不需要打印出结果。唯一的例外是debug的时候。</p>
+<p><strong>与我们的目标的联系：</strong></p>
+<ul>
+<li>远离bug。代码评审通过人的审查来发现bug。DRY使得你只用在一处地方修复bug，避免bug的遗漏。注释使得原作者的假设很清晰，避免了别的程序员在更改代码的时候引入新的bug。快速报错/失败使得bug能够尽早发现，避免程序造成更大的错误。避免使用全局变量使得修改bug更容易，因为局部变量只能在特定的区域修改。</li>
+<li>易读性。对于一些隐晦的bug，代码评审可能是唯一的发现方法。使用好的注释、避免幻数、变量目的单一化、选择好的命名、合理使用空格都可以提升代码的易读性。</li>
+<li>可改动性。DRY的代码更具有可改动性，因为代码只需要在一处进行更改。返回结果而不是打印它使得代码更可能被用作新的用途。</li>
+</ul>
+<h3 id="Reading-5：版本控制"><a href="#Reading-5：版本控制" class="headerlink" title="Reading 5：版本控制"></a>Reading 5：版本控制</h3><p>本章内容：介绍git的基本使用方法。</p>
+<p><strong>git简介：</strong>git是一个分布式版本控制工具，它可以实现在文件不同版本间进行切换，分布式是相对于集中式而言，集中式的版本库集中存放在中央服务器上，而分布式的版本库可以同时存放在所有人的电脑上。</p>
+<p><strong>创建版本库</strong></p>
+<p>版本库需要创建在一个目录下，能够管理该目录下的文件。</p>
+<p>创建方法：进入要创建版本库的目录，通过<code>git init</code>命令在该目录下创建仓库，刚创建的仓库为空。</p>
+<p>把文件添加到版本库，分为两步：</p>
+<ol>
+<li><code>git add filename</code>     暂存filename这个文件，即提交filename这个文件到暂存区。</li>
+<li><code>git commit -m &quot;note&quot;</code>     提交暂存文件到版本库，提交说明为”note”，每一次提交都是一个新的版本。</li>
+</ol>
+<p><strong>版本切换/回退</strong></p>
+<p>版本切换需要知道要切换到哪个版本，可以有两种方式</p>
+<ul>
+<li><code>git reset --hard HEAD^</code>    回退到上一个版本。<code>HEAD</code>表示当前版本，上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，也可以写成<code>HEAD~2</code>。</li>
+<li><code>git reset --hard commit ID</code>    每一个版本都会有一个版本号(commit ID)，该命令可以切换到相应的版本。通过<code>git log</code>命令可以查看提交日志（包括版本号），版本号可以只写前几位，能够区分是哪个版本即可。</li>
+</ul>
+<p><strong>撤销修改</strong></p>
+<p><strong>添加远程库：</strong></p>
+<ol>
+<li><code>git remote add origin</code>   将本地仓库与远程仓库链接，远程库的名字就是<code>origin</code>（git默认叫法，也可以起其他名字）</li>
+<li><code>git push -u origin master</code>    把本地库master分支的内容推送到远程origin，第一次推送时加<code>-u</code>参数，以后就不需要了。</li>
+</ol>
+<p><strong>从远程库克隆：</strong><code>git clone</code></p>
+<h3 id="Reading-6：规格说明"><a href="#Reading-6：规格说明" class="headerlink" title="Reading 6：规格说明"></a>Reading 6：规格说明</h3><p><strong>规格说明：</strong>一份对双方都有制约的合同。规格说明的作用：</p>
+<ul>
+<li>对使用者而言，规格说明使得使用者不需要阅读源码，规格说明比源码简单易读。</li>
+<li>对实现者而言，规格说明给了实现者更改实现而不需要告诉使用者的自由，还可以限定一些特殊的输入。</li>
+<li>规格说明将使用者与实现者隔离开，使用者和实现者的代码可以自由改动，只需要双方都遵循规格说明中的制约。</li>
+</ul>
+<p>前置条件：对使用者的制约，方法被调用时应满足的条件。</p>
+<p>后置条件：对实现者的制约，方法被调用后应执行的行为。</p>
+<p><strong>测试与规格说明</strong></p>
+<p>测试必须满足前置条件。</p>
+<p><strong>已检查(Checked)异常和未检查(Unchecked)异常</strong></p>
+<p>已检查异常：允许的特殊输入</p>
+<p>未检查异常：意料之外的输入</p>
+<h3 id="Reading-7：设计规格说明"><a href="#Reading-7：设计规格说明" class="headerlink" title="Reading 7：设计规格说明"></a>Reading 7：设计规格说明</h3><h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p><a href="http://web.mit.edu/6.031/www/sp18/" target="_blank" rel="noopener">MIT6.031课程页面</a></p>
+<p><a href="https://www.cnblogs.com/liqiuhao/default.html?page=3" target="_blank" rel="noopener">李秋豪的博客</a></p>
+
+
+      
+
+ 
+
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      1180300308-刘义
+    
+    <br>
+    <strong>本文链接：</strong>
+    https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction(1)/
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+
+
+      
+
+    </div>
+
+    <div class="article-info article-info-index">
+
+      
+
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">遇到的坑</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">HIT</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">课程学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note-sass</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">软件构造</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+
+      
+
+
+
+      
+
+      <div class="clearfix"></div>
+
+    </div>
+
   </div>
+
 </article>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/28/testBlog/" class="archive-article-date">
-  	<time datetime="2020-02-28T03:12:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/16/HIT-AbstractAlgebra(2)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HIT-近世代数(二)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/28/testBlog/">测试博客</a>
-    </h1>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/28/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-28T01:55:09.320Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/28/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+
+
+  
+
+
+
+  
+
+
+
+  
+
+  
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "a7na0lmJ70RXcsXB1h7RzpOt-gzGzoHsz",
+            app_key: "rI4Y7B6XFqwTXrjuhUOD8zOF",
+            placeholder: "来说点什么吧~",
+            avatar:"mm"
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+  
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -297,8 +625,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
