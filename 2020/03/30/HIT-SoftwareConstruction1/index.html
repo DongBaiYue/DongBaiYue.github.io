@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"dongbaiyue.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="：前言本篇内容主要是总结一下MIT6.031课程:Software Construction的阅读材料，以免遗忘。 未完成，待补充。。">
+  <meta name="description" content="前言本篇内容主要是总结一下MIT6.031课程:Software Construction的阅读材料，以免遗忘。 未完成，待补充。。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HIT-软件构造(一)">
 <meta property="og:url" content="https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction1/index.html">
 <meta property="og:site_name" content="东百月的博客">
-<meta property="og:description" content="：前言本篇内容主要是总结一下MIT6.031课程:Software Construction的阅读材料，以免遗忘。 未完成，待补充。。">
+<meta property="og:description" content="前言本篇内容主要是总结一下MIT6.031课程:Software Construction的阅读材料，以免遗忘。 未完成，待补充。。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-30T03:12:21.000Z">
-<meta property="article:modified_time" content="2020-07-10T13:36:13.856Z">
+<meta property="article:modified_time" content="2020-07-10T13:40:40.410Z">
 <meta property="article:author" content="1180300308-刘义">
 <meta property="article:tag" content="HIT">
 <meta property="article:tag" content="课程学习">
@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-10 21:36:13" itemprop="dateModified" datetime="2020-07-10T21:36:13+08:00">2020-07-10</time>
+                <time title="修改时间：2020-07-10 21:40:40" itemprop="dateModified" datetime="2020-07-10T21:40:40+08:00">2020-07-10</time>
               </span>
 
           
@@ -228,7 +228,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="："><a href="#：" class="headerlink" title="："></a>：</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>本篇内容主要是总结一下<a href="http://web.mit.edu/6.031/www/sp18/" target="_blank" rel="noopener">MIT6.031课程:Software Construction</a>的阅读材料，以免遗忘。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇内容主要是总结一下<a href="http://web.mit.edu/6.031/www/sp18/" target="_blank" rel="noopener">MIT6.031课程:Software Construction</a>的阅读材料，以免遗忘。</p>
 <p>未完成，待补充。。</p>
 <a id="more"></a>
 <h3 id="Reading-1：静态检查"><a href="#Reading-1：静态检查" class="headerlink" title="Reading 1：静态检查"></a>Reading 1：静态检查</h3><p><strong>类型：</strong>一系列值的集合，以及这些值对应的操作。分为原始类型和对象类型(也称引用类型)。</p>
@@ -478,7 +478,7 @@
 <li>对于自定义的不可变对象类型，要实现其“值相等”的比较，就需要重写<code>equals</code>方法。需要保证相等的不可变对象其hashcode值一定相等，不相等的的不可变对象其hashcode值尽量不等。因为<code>HashSet</code>、<code>HashMap</code>等数据结构会按照hashcode值计算对象存储的桶，前者不符合会出现bug，后者不符合则会影响<code>HashSet</code>、<code>HashMap</code>等数据结构的性能。</li>
 <li>对于自定义的可变对象类型，若其是实现为“值相等”的比较，对象改变后其hashcode值也会发生改变，那么在<code>HashSet</code>、<code>HashMap</code>等数据结构<code>contains</code>等操作会出现bug（比如<code>contains</code>会去新的hashcode值对应的桶中寻找，结果查找失败），因此应当实现为“引用相等”，即默认继承。</li>
 </ul>
-<h3 id="Reading-17"><a href="#Reading-17" class="headerlink" title="Reading 17:"></a>Reading 17:</h3><h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p><a href="http://web.mit.edu/6.031/www/sp18/" target="_blank" rel="noopener">MIT6.031课程页面</a></p>
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><p><a href="http://web.mit.edu/6.031/www/sp18/" target="_blank" rel="noopener">MIT6.031课程页面</a></p>
 <p><a href="https://www.cnblogs.com/liqiuhao/default.html?page=3" target="_blank" rel="noopener">李秋豪的博客</a></p>
 
     </div>
@@ -583,7 +583,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#："><span class="nav-number">1.</span> <span class="nav-text">：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-1：静态检查"><span class="nav-number">1.2.</span> <span class="nav-text">Reading 1：静态检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-2：Java基础"><span class="nav-number">1.3.</span> <span class="nav-text">Reading 2：Java基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-3：测试"><span class="nav-number">1.4.</span> <span class="nav-text">Reading 3：测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-4：代码评审"><span class="nav-number">1.5.</span> <span class="nav-text">Reading 4：代码评审</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-5：版本控制"><span class="nav-number">1.6.</span> <span class="nav-text">Reading 5：版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-6：规格说明"><span class="nav-number">1.7.</span> <span class="nav-text">Reading 6：规格说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-7：设计规格说明"><span class="nav-number">1.8.</span> <span class="nav-text">Reading 7：设计规格说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-8：可变性与不变性"><span class="nav-number">1.9.</span> <span class="nav-text">Reading 8：可变性与不变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-9：避免调试"><span class="nav-number">1.10.</span> <span class="nav-text">Reading 9：避免调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-10：抽象数据类型"><span class="nav-number">1.11.</span> <span class="nav-text">Reading 10：抽象数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-15：相等"><span class="nav-number">1.12.</span> <span class="nav-text">Reading 15：相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-17"><span class="nav-number">1.13.</span> <span class="nav-text">Reading 17:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料："><span class="nav-number">1.14.</span> <span class="nav-text">参考资料：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-1：静态检查"><span class="nav-number">1.1.</span> <span class="nav-text">Reading 1：静态检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-2：Java基础"><span class="nav-number">1.2.</span> <span class="nav-text">Reading 2：Java基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-3：测试"><span class="nav-number">1.3.</span> <span class="nav-text">Reading 3：测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-4：代码评审"><span class="nav-number">1.4.</span> <span class="nav-text">Reading 4：代码评审</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-5：版本控制"><span class="nav-number">1.5.</span> <span class="nav-text">Reading 5：版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-6：规格说明"><span class="nav-number">1.6.</span> <span class="nav-text">Reading 6：规格说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-7：设计规格说明"><span class="nav-number">1.7.</span> <span class="nav-text">Reading 7：设计规格说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-8：可变性与不变性"><span class="nav-number">1.8.</span> <span class="nav-text">Reading 8：可变性与不变性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-9：避免调试"><span class="nav-number">1.9.</span> <span class="nav-text">Reading 9：避免调试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-10：抽象数据类型"><span class="nav-number">1.10.</span> <span class="nav-text">Reading 10：抽象数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reading-15：相等"><span class="nav-number">1.11.</span> <span class="nav-text">Reading 15：相等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料："><span class="nav-number">1.12.</span> <span class="nav-text">参考资料：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

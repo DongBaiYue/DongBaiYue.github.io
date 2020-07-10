@@ -41,6 +41,30 @@
   </entry>
   
   <entry>
+    <title>HIT-软件构造(一)</title>
+    <link href="https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction1/"/>
+    <id>https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction1/</id>
+    <published>2020-03-30T03:12:21.000Z</published>
+    <updated>2020-07-10T13:40:40.410Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本篇内容主要是总结一下&lt;a href=&quot;http://web.mit.edu/6.031/www/sp18/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MIT6.031课程:Software Construction&lt;/a&gt;的阅读材料，以免遗忘。&lt;/p&gt;
+&lt;p&gt;未完成，待补充。。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="HIT" scheme="https://dongbaiyue.github.io/tags/HIT/"/>
+    
+      <category term="课程学习" scheme="https://dongbaiyue.github.io/tags/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="软件构造" scheme="https://dongbaiyue.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HIT-近世代数(二)</title>
     <link href="https://dongbaiyue.github.io/2020/03/16/HIT-AbstractAlgebra(2)/"/>
     <id>https://dongbaiyue.github.io/2020/03/16/HIT-AbstractAlgebra(2)/</id>
@@ -60,30 +84,6 @@
       <category term="课程学习" scheme="https://dongbaiyue.github.io/tags/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="近世代数" scheme="https://dongbaiyue.github.io/tags/%E8%BF%91%E4%B8%96%E4%BB%A3%E6%95%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HIT-软件构造(二)</title>
-    <link href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction2/"/>
-    <id>https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction2/</id>
-    <published>2020-07-10T13:31:42.000Z</published>
-    <updated>2020-07-10T13:37:09.498Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本篇内容主要是总结一下&lt;a href=&quot;https://www.cs.cmu.edu/~charlie/courses/17-214/2019-fall&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CMU 17-214课程: Principles of Software Construction&lt;/a&gt;的课程PPT，以免遗忘。&lt;/p&gt;
-&lt;p&gt;状态：未完成。。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="HIT" scheme="https://dongbaiyue.github.io/tags/HIT/"/>
-    
-      <category term="课程学习" scheme="https://dongbaiyue.github.io/tags/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="软件构造" scheme="https://dongbaiyue.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/"/>
     
   </entry>
   
@@ -111,39 +111,15 @@
   </entry>
   
   <entry>
-    <title>HIT-软件构造(一)</title>
-    <link href="https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction1/"/>
-    <id>https://dongbaiyue.github.io/2020/03/30/HIT-SoftwareConstruction1/</id>
-    <published>2020-03-30T03:12:21.000Z</published>
-    <updated>2020-07-10T13:36:13.856Z</updated>
+    <title>HIT-软件构造(二)</title>
+    <link href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction2/"/>
+    <id>https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction2/</id>
+    <published>2020-07-10T13:31:42.000Z</published>
+    <updated>2020-07-10T13:39:51.288Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;：&quot;&gt;&lt;a href=&quot;#：&quot; class=&quot;headerlink&quot; title=&quot;：&quot;&gt;&lt;/a&gt;：&lt;/h2&gt;&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本篇内容主要是总结一下&lt;a href=&quot;http://web.mit.edu/6.031/www/sp18/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;MIT6.031课程:Software Construction&lt;/a&gt;的阅读材料，以免遗忘。&lt;/p&gt;
-&lt;p&gt;未完成，待补充。。&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="HIT" scheme="https://dongbaiyue.github.io/tags/HIT/"/>
-    
-      <category term="课程学习" scheme="https://dongbaiyue.github.io/tags/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="软件构造" scheme="https://dongbaiyue.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HIT-软件构造(五)</title>
-    <link href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction5/"/>
-    <id>https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction5/</id>
-    <published>2020-07-10T13:32:06.000Z</published>
-    <updated>2020-07-10T13:37:29.830Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;线程安全&lt;/p&gt;
+      &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;本篇内容主要是总结一下&lt;a href=&quot;https://www.cs.cmu.edu/~charlie/courses/17-214/2019-fall&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CMU 17-214课程: Principles of Software Construction&lt;/a&gt;的课程PPT，以免遗忘。&lt;/p&gt;
     
     </summary>
     
@@ -167,6 +143,29 @@
     <summary type="html">
     
       &lt;p&gt;实验记录、以及考前查漏补缺&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="HIT" scheme="https://dongbaiyue.github.io/tags/HIT/"/>
+    
+      <category term="课程学习" scheme="https://dongbaiyue.github.io/tags/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="软件构造" scheme="https://dongbaiyue.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HIT-软件构造(五)</title>
+    <link href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction5/"/>
+    <id>https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction5/</id>
+    <published>2020-07-10T13:32:06.000Z</published>
+    <updated>2020-07-10T13:37:29.830Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;线程安全&lt;/p&gt;
     
     </summary>
     
