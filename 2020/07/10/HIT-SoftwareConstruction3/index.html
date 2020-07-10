@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dongbaiyue.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="前言本篇内容主要概括课程中涉及的设计模式，包括goF设计模式和GRASP设计模式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HIT-软件构造(三)">
+<meta property="og:url" content="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction3/index.html">
+<meta property="og:site_name" content="东百月的博客">
+<meta property="og:description" content="前言本篇内容主要概括课程中涉及的设计模式，包括goF设计模式和GRASP设计模式。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506153003448.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506153622558.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506153345168.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200501164428511.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200504112341353.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200501165045739.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506154113607.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200501165725213.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506160650858.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506162519052.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200505193609872.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200505202853770.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200710173115441.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200710173701846.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200505222640992.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200710181604171.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200710170323285.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200710171404771.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200505212833640.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506195712841.png">
+<meta property="og:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200710180352189.png">
+<meta property="article:published_time" content="2020-07-10T13:31:56.000Z">
+<meta property="article:modified_time" content="2020-07-10T13:33:42.243Z">
+<meta property="article:author" content="1180300308-刘义">
+<meta property="article:tag" content="HIT">
+<meta property="article:tag" content="课程学习">
+<meta property="article:tag" content="软件构造">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dongbaiyue.github.io/images/HIT-SoftwareConstruction3/image-20200506153003448.png">
+
+<link rel="canonical" href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HIT-软件构造(三) | 东百月的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="东百月的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">东百月的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">物质上的匮乏和精神上的无聊是人生的两大痛苦。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="1180300308-刘义">
+      <meta itemprop="description" content="这里是东百月的园地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="东百月的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HIT-软件构造(三)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-10 21:31:56 / 修改时间：21:33:42" itemprop="dateCreated datePublished" datetime="2020-07-10T21:31:56+08:00">2020-07-10</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/10/HIT-SoftwareConstruction3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/10/HIT-SoftwareConstruction3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本篇内容主要概括课程中涉及的设计模式，包括goF设计模式和GRASP设计模式。</p>
+<a id="more"></a>
+<h2 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h2><p>UML类图初步</p>
+<ul>
+<li><p>接口、抽象类、类</p>
+<ul>
+<li><p>类。三层矩阵表示，第一层类名，第二层数据域，第三层方法。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506153003448.png" alt="image-20200506153003448"></p>
+</li>
+<li><p>接口。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506153622558.png" alt="image-20200506153622558"></p>
+</li>
+<li><p>抽象类。类名斜体，若有抽象方法也用斜体表示。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506153345168.png" alt="image-20200506153345168"></p>
+</li>
+</ul>
+</li>
+<li><p>关系</p>
+<ul>
+<li><p>“extends”(继承)。如下图，B继承了A</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200501164428511.png" alt="image-20200501164428511"></p>
+</li>
+<li><p>“implements”(实现)。如下图，类B实现了接口A</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200504112341353.png" alt="image-20200504112341353"></p>
+</li>
+<li><p>“has a”(aggregation聚合)。如下图，B has a A</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200501165045739.png" alt="image-20200501165045739"></p>
+</li>
+<li><p>association(关联)。如下图，A关联B</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506154113607.png" alt="image-20200506154113607"></p>
+<p>没有箭头表示关联是双向的。比如说</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200501165725213.png" alt="image-20200501165725213"></p>
+</li>
+</ul>
+</li>
+<li><p>访问权限</p>
+<ul>
+<li>+：public</li>
+<li>-：private</li>
+<li>#：protected</li>
+</ul>
+</li>
+</ul>
+<h2 id="设计原则——有助于实现设计目标的启发式"><a href="#设计原则——有助于实现设计目标的启发式" class="headerlink" title="设计原则——有助于实现设计目标的启发式"></a>设计原则——有助于实现设计目标的启发式</h2><ul>
+<li>低耦合<ul>
+<li>含义：一个组件应该尽可能少地依赖其他组件</li>
+<li>意义：<ul>
+<li>易于理解，提高代码可读性</li>
+<li>易于改动</li>
+<li>易于复用</li>
+</ul>
+</li>
+<li>例子：Law of Demeter，也称最少知识原则</li>
+</ul>
+</li>
+<li>低表示差异<ul>
+<li>含义：软件中的概念表示与真实世界的概念差异尽可能少</li>
+<li>意义：<ul>
+<li>易于理解</li>
+<li>促进从问题到解决方案的思路</li>
+<li>有利于改进</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高内聚<ul>
+<li>含义：一个组件应该承担一组关系密切的责任/功能</li>
+<li>意义：<ul>
+<li>易于理解</li>
+<li>有利于复用</li>
+<li>易于扩展</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="goF模式"><a href="#goF模式" class="headerlink" title="goF模式"></a>goF模式</h2><p>设计模式：前人经验总结出来的设计方案。有三类设计模式</p>
+<ul>
+<li>创建型模式：如何更好地创建对象</li>
+<li>结构型模式：如何更好地组合类、对象</li>
+<li>行为型模式：如何更好地实现类、对象的交互，以及职责分配。</li>
+</ul>
+<p>一个设计模式包括：名字、问题的抽象描述、解决方案的抽象描述、效果（好处和坏处）</p>
+<h3 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h3><p><strong>面向可维护性</strong></p>
+<p>以下三种工厂都是要解决 客户端与new方法的紧密耦合，或者说把客户端到处乱跑的new方法集中到一个区域，方便修改。</p>
+<ul>
+<li><p>简单/静态工厂方法(Static Factory Method)（不算是一个设计模式）</p>
+<ul>
+<li>解决方案：给要创建的对象（称为产品）类添加一个静态方法，返回对象实例。</li>
+<li>效果：<ul>
+<li>客户端与new方法解耦</li>
+<li>易于理解</li>
+<li>一旦添加要返回的子类型，静态工厂方法就要修改。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>工厂方法模式(Factory method pattern)</p>
+<ul>
+<li><p>解决方案：创建一个抽象类定义公共接口，由其子类生成具体产品。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506160650858.png" alt="image-20200506160650858"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>客户端与new方法解耦</li>
+<li>每增加一种产品就要新增一个工厂子类（更糟糕的，如果用户不能继承<em>Creator</em>类将不得不使用new方法）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>抽象工厂模式(Abstract factory pattern)</p>
+<ul>
+<li><p>解决方案：在工厂方法的基础上，一个工厂子类可以返回多个产品。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506162519052.png" alt="image-20200506162519052"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>客户端与new方法解耦</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h3><ul>
+<li><p>观察者模式(Observer pattern)</p>
+<ul>
+<li><p>问题：主题（即被观察者）需要通知观察者，但不能依赖观察者具体实现。</p>
+</li>
+<li><p>解决方案：定义一个小接口，该接口定义了观察者如何接收通知，主题仅依赖该接口。如，</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200505193609872.png" alt="image-20200505193609872"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>观察者与主题之间松耦合</li>
+<li>如果有多级观察者会一级级通知，这种级联通知可能造成性能损耗。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="面向可复用性"><a href="#面向可复用性" class="headerlink" title="面向可复用性"></a>面向可复用性</h5><ul>
+<li><p>适配器模式(Adapter pattern)</p>
+<ul>
+<li><p>问题：想要使用的API与提供的API不一致</p>
+</li>
+<li><p>解决方案：写一个类调用提供的API实现期望的API，如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200505202853770.png" alt="image-20200505202853770"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>用户能够使用更多的库</li>
+<li>提供的API的重写更加困难</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Decorator pattern(装饰者模式)</p>
+<ul>
+<li><p>问题：需要任意地或是动态地组合扩展单个对象</p>
+</li>
+<li><p>解决方案：为所有要扩展的对象创建一个公共的接口，把功能扩展的责任委托给底层对象。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200710173115441.png" alt="image-20200710173115441" style="zoom:80%;" /></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>相比于静态的继承更加灵活</li>
+<li>可定义的扩展</li>
+<li>对象类型不确定，可能自引用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>外观模式(Facade pattern)</p>
+<ul>
+<li><p>问题：需要使用大量类来实现某个功能</p>
+</li>
+<li><p>解决方案：创建一个新的类（外观），它通过调用各个类来实现功能，对外暴露出几个简单的方法。</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200710173701846.png" alt="image-20200710173701846"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>为复杂API提供了简单的接口</li>
+<li>用户与要使用的大量类解耦</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>组合模式(Composite pattern)</p>
+<ul>
+<li><p>问题：需要对象组合有 和个别对象相似的 行为。</p>
+</li>
+<li><p>解决方案：为对象组合和个别对象实现相同的接口。如</p>
+</li>
+</ul>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200505222640992.png" alt="image-20200505222640992"></p>
+<ul>
+<li>效果：<ul>
+<li>能够以统一的方式处理个别对象和对象组合。</li>
+<li>容易添加新的对象类型。？</li>
+<li>设计可能变得过于笼统，接口实用性不强。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>代理模式</p>
+<ul>
+<li><p>问题：控制对对象的访问权限，比如某些信息、方法不想被用户访问</p>
+</li>
+<li><p>解决方案：为对象创建一个代理，用户访问代理而不是直接访问对象</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200710181604171.png" alt="image-20200710181604171"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>可扩展</li>
+<li>增加了代理对象使性能损耗</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h3 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h3><h4 id="面向可复用"><a href="#面向可复用" class="headerlink" title="面向可复用"></a>面向可复用</h4><ul>
+<li><p>Strategy pattern(策略模式)</p>
+<ul>
+<li><p>问题：需要使用同一个算法的不同变体，这些变体是相同功能的不同实现。</p>
+</li>
+<li><p>解决方案：为这个算法创建一个接口，并为其每一个变体创建一个实现类。</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200710170323285.png" alt="image-20200710170323285"></p>
+</li>
+<li><p>效果</p>
+<ul>
+<li>易于添加新的变体</li>
+<li>将该算法与使用的上下文分离开</li>
+<li>引入了额外的接口和类，使得<ul>
+<li>代码更难以阅读</li>
+<li>额外的开销</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Template method pattern(模版方法模式)</p>
+<ul>
+<li>问题：一个算法包含不变的和支持自定义的两部分</li>
+<li>解决方案：创建一个抽象类实现不变的部分（称为模板方法），自定义的部分（称为基本操作）声明为抽象方法，由子类去实现。</li>
+<li>效果：<ul>
+<li>重用了算法不变的部分</li>
+<li>子类自定义部分受限于抽象方法</li>
+<li>需要反向控制（好莱坞原则）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Iterator pattern(迭代器模式)</p>
+<ul>
+<li><p>问题：用户需要用一种统一的方法去依次访问一个容器（即聚合对象）的各个元素。</p>
+</li>
+<li><p>解决方法：对迭代器使用策略模式，为对象实现迭代器接口，包括hasnext、next方法。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>效果<ul>
+<li>隐藏了迭代的底层实现</li>
+<li>易于改变容器（即聚合对象）的类型</li>
+<li>有利用项目各部分的交流</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Conmand pattern(命令模式)</p>
+<ul>
+<li><p>问题：用户需要在不知道操作细节的情况下，执行一些操作。</p>
+</li>
+<li><p>解决方案：为这些操作创建一个接口、一个（或多个）实现类来执行操作。</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200710171404771.png" alt="image-20200710171404771"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>将操作与使用的上下文分离开</li>
+<li>支持指定、队列、执行操作。</li>
+<li>引入了额外的接口和类，使得<ul>
+<li>代码更难以阅读</li>
+</ul>
+</li>
+<li>额外的开销</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+<li><p>责任链模式(Chain of responsibility pattern)</p>
+<ul>
+<li><p>问题：需要在一个深层的嵌套或迭代结构中将多个对象的功能关联起来。</p>
+</li>
+<li><p>解决方案：将功能请求沿链传递直到某个组件处理它。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200505212833640.png" alt="image-20200505212833640"></p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>将请求的发送者与接收者解耦</li>
+<li>在链的尾部处理请求，可以简化请求处理</li>
+<li>并不保证请求一定会被执行。如果没有链成员处理它，会落到链尾之后。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>状态模式(State Pattern)</p>
+<ul>
+<li><p>问题：需要对象方法在不同状态下有不同行为。</p>
+</li>
+<li><p>解决方案：创建一个类，这个类包含有对状态的引用，把行为委托给状态去做。如</p>
+<p><img src="/images/HIT-SoftwareConstruction3/image-20200506195712841.png" alt="image-20200506195712841"></p>
+<p>注：状态对象常常可以共享或者说单例/单件。</p>
+</li>
+<li><p>效果：</p>
+<ul>
+<li>结构清晰，便于维护。</li>
+<li>如果状态过多，会有大量子类，存在性能损耗。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>备忘录模式</p>
+<ul>
+<li>问题：在不破坏对象封装的前提下，获取并保存对象状态，以便恢复</li>
+<li>解决方案：</li>
+<li><img src="/images/HIT-SoftwareConstruction3/image-20200710180352189.png" alt="image-20200710180352189" style="zoom:80%;" /></li>
+<li>效果：<ul>
+<li>保持了封装</li>
+<li>容易恢复</li>
+<li>存储、恢复状态可能耗时较长</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="GRASP模式"><a href="#GRASP模式" class="headerlink" title="GRASP模式"></a>GRASP模式</h2><p>GRASP是General Responsibility Assignment Software Patterns（通用职责分配模式）的缩写。GRASP模式对基本的职责分配的原则进行了命名和描述，包括</p>
+<ul>
+<li><p>创建者(Creator)</p>
+<ul>
+<li>问题：由谁去创建对象$Y$？（此时的对象指的是 实现级别的 对象）</li>
+<li>建议：创建对象$Y$的类$X$应具有以下特点之一（具有越多越好）<ul>
+<li>$X$包含或聚合了$Y$</li>
+<li>$X$记录$Y$</li>
+<li>$X$紧密使用$Y$</li>
+<li>$X$具有$Y$的初始化数据</li>
+</ul>
+</li>
+<li>意义：减少不必要的耦合。</li>
+</ul>
+</li>
+<li><p>信息专家(Information Expert)</p>
+<ul>
+<li>问题：某个职责应该分配给谁？</li>
+<li><p>建议：把职责分配给具有完成该职责所需信息的那个类。</p>
+</li>
+<li><p>意义：减少不必要的耦合。</p>
+</li>
+</ul>
+</li>
+<li><p>低耦合(Low Coupling)</p>
+<ul>
+<li>问题：如何减少因变化产生的影响？</li>
+<li>建议：合理分配职责以使（不必要的）耦合保持在较低水平。该原则被用来评估可选方案。</li>
+</ul>
+</li>
+<li><p>控制器(Controller)</p>
+<ul>
+<li>问题：由谁去首先接收外部输入，协调、委派工作？</li>
+<li>建议：<ul>
+<li>代表整个“系统”、“主要子系统”的外观控制器</li>
+<li>代表用例场景的用例控制器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>高内聚(High Cohesion)</p>
+<ul>
+<li>问题：怎样使对象内聚、易于理解、易于管理，同时具有低耦合的额外作用？</li>
+<li>建议：职责分配应保持高内聚。</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>1180300308-刘义
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction3/" title="HIT-软件构造(三)">https://dongbaiyue.github.io/2020/07/10/HIT-SoftwareConstruction3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/HIT/" rel="tag"># HIT</a>
+              <a href="/tags/%E8%AF%BE%E7%A8%8B%E5%AD%A6%E4%B9%A0/" rel="tag"># 课程学习</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/" rel="tag"># 软件构造</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/10/HIT-SoftwareConstruction2/" rel="prev" title="HIT-软件构造(二)">
+      <i class="fa fa-chevron-left"></i> HIT-软件构造(二)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/10/HIT-SoftwareConstruction4/" rel="next" title="HIT-软件构造(四)">
+      HIT-软件构造(四) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML类图"><span class="nav-number">2.</span> <span class="nav-text">UML类图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计原则——有助于实现设计目标的启发式"><span class="nav-number">3.</span> <span class="nav-text">设计原则——有助于实现设计目标的启发式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goF模式"><span class="nav-number">4.</span> <span class="nav-text">goF模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建型模式"><span class="nav-number">4.1.</span> <span class="nav-text">创建型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构型模式"><span class="nav-number">4.2.</span> <span class="nav-text">结构型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#面向可复用性"><span class="nav-number">4.2.0.1.</span> <span class="nav-text">面向可复用性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#行为型模式"><span class="nav-number">4.3.</span> <span class="nav-text">行为型模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#面向可复用"><span class="nav-number">4.3.1.</span> <span class="nav-text">面向可复用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GRASP模式"><span class="nav-number">5.</span> <span class="nav-text">GRASP模式</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="1180300308-刘义"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">1180300308-刘义</p>
+  <div class="site-description" itemprop="description">这里是东百月的园地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dongbaiyue" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dongbaiyue" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/dong-bai-yue-69" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;dong-bai-yue-69" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2681514899@qq.com" title="E-Mail → mailto:2681514899@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">1180300308-刘义</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'mcAf4MCU7LoDcVSt7UrEUOqa-MdYXbMMI',
+      appKey     : 'auKPdtKuG2HM2Ffbpu17U83N',
+      placeholder: "来说点什么吧~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
+<!-- 文件位置：~/theme/next/layout/_layout.swig -->
+
+<script type="text/javascript" src="/js/clicklove.js"></script>

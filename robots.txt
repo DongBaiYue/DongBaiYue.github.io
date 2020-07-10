@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+Allow: /about/
+Allow: /archives/
+Allow: /categories/
+Allow: /tags/
+# Disallow: /css/
+Disallow: /images/
+# Disallow: /js/
+Disallow: /lib/
+
+
+Sitemap: https://dongbaiyue.github.io/sitemap.xml
