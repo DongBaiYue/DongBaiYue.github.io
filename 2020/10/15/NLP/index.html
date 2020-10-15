@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"dongbaiyue.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Language Modeling">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自然语言处理（一）：语言模型">
+<meta property="og:url" content="https://dongbaiyue.github.io/2020/10/15/NLP/index.html">
+<meta property="og:site_name" content="东百月的博客">
+<meta property="og:description" content="Language Modeling">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-15T02:05:11.846Z">
+<meta property="article:modified_time" content="2020-10-15T02:36:06.694Z">
+<meta property="article:author" content="1180300308-刘义">
+<meta property="article:tag" content="自然语言处理">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://dongbaiyue.github.io/2020/10/15/NLP/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>自然语言处理（一）：语言模型 | 东百月的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="东百月的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">东百月的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">物质上的匮乏和精神上的无聊是人生的两大痛苦。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://dongbaiyue.github.io/2020/10/15/NLP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="1180300308-刘义">
+      <meta itemprop="description" content="这里是东百月的园地">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="东百月的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自然语言处理（一）：语言模型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-15 10:05:11 / 修改时间：10:36:06" itemprop="dateCreated datePublished" datetime="2020-10-15T10:05:11+08:00">2020-10-15</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/15/NLP/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/15/NLP/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Language-Modeling"><a href="#Language-Modeling" class="headerlink" title="Language Modeling"></a>Language Modeling</h1><a id="more"></a>
+<p><strong>定义1(Language Model)</strong>：一个语言模型由一个有限词汇表$V$和一个函数$p(x_1,x_2,\cdots,x_n)$组成，其中函数$p$满足：</p>
+<ol>
+<li>对任意$\prec x_1,x_2,\cdots,x_n\succ\in V^+,p(x_1,x_2,\cdots,x_n)\geq 0$</li>
+<li>此外，$\sum\limits_{\prec x_1,x_2,\cdots,x_n\succ\in V^+}p(x_1,x_2,\cdots,x_n)=1$</li>
+</ol>
+<p>因此$p(x_1,x_2,\cdots,x_n)$是$V^+$上句子的概率分布。</p>
+<p><strong>任务</strong>：给定一个语料库，即句子的集合，想要估算语言模型的参数。</p>
+<p>语言模型中函数$p$是待求参数，因此任务即是估算$p$。一个最简单、但糟糕的方法是：</p>
+<p>$p(x_1,x_2,\cdots,x_n)=\frac{c(x_1,x_2,\cdots,x_n)}{N}$</p>
+<p>其中$c(x_1,x_2,\cdots,x_n)$是句子$\prec x_1,x_2,\cdots,x_n\succ$在语料库中出现的次数，$N$是语料库句子总数。即直接以句子频率表示其概率。</p>
+<p>这个方法使所有语料库中没有的句子概率为$0$，因此无法推广到语料库之外。</p>
+<p>我们将要介绍一种常见的概率估算方法，但在此之前我们先来看一下Markov模型。</p>
+<h2 id="Markov模型："><a href="#Markov模型：" class="headerlink" title="Markov模型："></a>Markov模型：</h2><p><strong>句子长度固定为$n$时</strong></p>
+<p>考虑$n$个随机变量$X_1,X_2,\cdots,X_n$，每个随机变量取$V$中的任意值，则联合概率分布为$P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)$。$\prec x_1,x_2,\cdots,x_n\succ$有$|V|^n$种不同的可能，在实践中，这是一个非常庞大、以至于不现实的数字，因此我们需要简化它。</p>
+<p>由条件概率公式，</p>
+<p>$\begin{align}&amp;\quad\ \ P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)\\&amp;=P(X_1=x_1)\prod\limits_{i=2}^n P(X_i=x_i|X_1=x_1,\cdots,X_{i-1}=x_{i-1})\end{align}$</p>
+<ul>
+<li><p>一阶Markov过程，假设$X_i$的取值仅与前一个变量有关，因此</p>
+<p>$P(X_i=x_i|X_1=x_1,\cdots,X_{i-1}=x_{i-1})=P(X_i=x_i|X_{i-1}=x_{i-1})$，带回上式</p>
+<p>$P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)=P(X_1=x_1)\prod\limits_{i=2}^n P(X_i=x_i|X_{i-1}=x_{i-1})$</p>
+</li>
+<li><p>二阶Markov过程，放松之前的限制，假设$X_i$的取值仅与前二个变量有关，因此</p>
+<p>$P(X_i=x_i|X_1=x_1,\cdots,X_{i-1}=x_{i-1})=P(X_i=x_i|X_{i-2}=x_{i-2},X_{i-1}=x_{i-1})$，同样地，</p>
+<p>$\begin{align}&amp;\quad\ \  P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)\\&amp;=P(X_1=x_1)P(X_2=x_2)\prod\limits_{i=3}^n P(X_i=x_i|X_{i-2}=x_{i-2},X_{i-1}=x_{i-1})\end{align}$</p>
+</li>
+</ul>
+<p>为简化形式，我们约定$x_{-1}=x_0=\ast$，$\ast$是一个表示开始的特殊符号。这样我们可以将上式（二阶Markov过程）简化为：</p>
+<p>$\begin{align}&amp;\quad\ \  P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)\\&amp;=\prod\limits_{i=1}^n P(X_i=x_i|X_{i-2}=x_{i-2},X_{i-1}=x_{i-1})\end{align}$</p>
+<p><strong>句子长度不固定时</strong></p>
+<p>以上用$n$个随机变量只能表示句子长度为$n$的情况，因此我们进行如下扩展：</p>
+<p>引入一个表示句子结束的特殊符号$STOP$，$STOP\notin V$。设想以下机制：</p>
+<ol>
+<li>我们每次从$V\bigcup\{STOP\}$中任选一个元素$x$</li>
+<li>若$x$为$STOP$，表示句子结束；否则回到1，继续选出句子的下一个元素</li>
+</ol>
+<p>这样，最终产生出一个句子$\prec x_1,x_2,\cdots,x_n\succ$，其中$x_1,x_2,\cdots,x_{n-1}\in V,x_n=STOP$.</p>
+<p>同样地，根据二阶Markov假设，</p>
+<p>$\begin{align}&amp;\quad\ \  P(X_1=x_1,X_2=x_2,\cdots,X_n=x_n)\\&amp;=\prod\limits_{i=1}^n P(X_i=x_i|X_{i-2}=x_{i-2},X_{i-1}=x_{i-1})\end{align}$</p>
+<h2 id="Trigram-Language-Models-三元文法模型"><a href="#Trigram-Language-Models-三元文法模型" class="headerlink" title="Trigram Language Models(三元文法模型)"></a>Trigram Language Models(三元文法模型)</h2><p>三元文法模型是此前讲述的二阶Markov过程的直接应用。</p>
+<p><strong>定义2(Trigram Language Models)</strong>：三元文法模型由一个有限词汇表$V$和一个函数$q(w|u,v)$组成，其中$w\in V\cup\{STOP\},u、v\in V\cup \{\ast\}$.  $q(w|u,v)$表示二元组$(u,v)$的后一个符号是$w$的概率。对任意句子$x_1x_2\cdots x_n$，满足$x_1,x_2,\cdots,x_{n-1}\in V,x_n=STOP$，在三元文法模型中其概率为：$p(x_1,x_2,\cdots,x_n)=\prod\limits_{i=1}^n q(x_i|x_{i-2},x_{i-1})$，其中$x_{-1}=x_0=\ast$.</p>
+<p>函数$q(w|u,v)$是待求参数，其基本要求是：</p>
+<ol>
+<li>$q(w|u,v)\geq0$</li>
+<li>对$\forall u、v,\sum\limits_{w\in V\cup\{STOP\}}q(w|u,v)=1$</li>
+</ol>
+<p><strong>最大似然估计</strong></p>
+<p>最大似然估计直接用频率来代替概率，即对$\forall w,u,v$，有$q(w|u,v)=\frac{c(u,v,w)}{c(u,v)}$.</p>
+<p>这种方法带来了两个问题：</p>
+<ul>
+<li>主要问题：三元组$(u,v,w)$有$V^3$种，实践中我们会有1万个以上的单词/字，$V^3$会达到$10^{12}$量级。而我们的语料库规模远小于$10^{12}$，因此大量$(u,v,w)$在训练语料库中没有，从而$q(w|u,v)=0$。这样，模型会系统性地低估训练语料库中没有的$(u,v,w)$出现的概率。</li>
+<li>对于$c(u,v)=0$，即分母为$0$的情况未做定义。</li>
+</ul>
+<p>因此需要解决数据稀疏的问题，不过在此之前，让我们先来了解如何评估一个语言模型的好坏。</p>
+<h2 id="语言模型的评估指标：困惑度"><a href="#语言模型的评估指标：困惑度" class="headerlink" title="语言模型的评估指标：困惑度"></a>语言模型的评估指标：困惑度</h2><p>我们根据一个训练语料库来建立语言模型，而评估语言模型时我们需要另一个语料库，称为测试语料库。在实践中，往往把拿到的语料库进行划分，一部分用来建模，一部分用来测试。</p>
+<p>假设训练语料库规模为$m$，其中句子为$x^{(1)},x^{(2)},\cdots,x^{(m)}$，和之前一样以$STOP$结束。困惑度定义为：$2^{-\frac{1}{M}\sum\limits_{i=1}^m\log_2p(x^{(i)})}$，其中$M$是测试语料库单词总数，即$M=\sum\limits_{i=1}^mlength(x^{(i)})$.</p>
+<p>$p(x^{(i)})=\prod\limits_{j=1}^{length(x^{(i)})} q(x_j^{(i)}|x_{j-2}^{(i)},x_{j-1}^{(i)})$</p>
+<p>因此</p>
+<p>$\begin{align}2^{-\frac{1}{M}\sum\limits_{i=1}^m\log_2p(x^{(i)})}&amp;=2^{-\frac{1}{M}\log_2{\prod\limits_{i=1}^m\prod\limits_{j=1}^{length(x^{(i)})} q(x_j^{(i)}|x_{j-2}^{(i)},x_{j-1}^{(i)})}}\\&amp;=2^{-\log_2{(\prod\limits_{i=1}^m\prod\limits_{j=1}^{length(x^{(i)})} q(x_j^{(i)}|x_{j-2}^{(i)},x_{j-1}^{(i)})})^{\frac{1}{M}}}\\&amp;=\frac{1}{(\prod\limits_{i=1}^m\prod\limits_{j=1}^{length(x^{(i)})} q(x_j^{(i)}|x_{j-2}^{(i)},x_{j-1}^{(i)}))^{\frac{1}{M}}}\end{align}$</p>
+<p>可以看出，困惑度是$M$个$q(x_j^{(i)}|x_{j-2}^{(i)},x_{j-1}^{(i)})$的几何平均数的倒数。</p>
+<p>模型质量越好（预测能力越强），测试语料库中$q(x_j^{(i)}|x_{j-2}^{(i)},x_{j-1}^{(i)})$总体上就会越大，从而使困惑度越小。</p>
+<h2 id="数据平滑"><a href="#数据平滑" class="headerlink" title="数据平滑"></a>数据平滑</h2><p>此前我们提到最大似然估计$q(w|u,v)=\frac{c(u,v,w)}{c(u,v)}$会面临数据稀疏的问题，因而需要使用数据平滑方法来减轻这个问题。本节我们介绍两种常见的数据平滑方法：线性插值法和折扣法。</p>
+<h3 id="线性插值法"><a href="#线性插值法" class="headerlink" title="线性插值法"></a>线性插值法</h3><p>令</p>
+<p>$\begin{align}q_{ML}(w|u,v)&amp;=\frac{c(u,v,w)}{c(u,v)}\\q_{ML}(w|v)&amp;=\frac{c(v,w)}{c(v)}\\q_{ML}(w)&amp;=\frac{c(w)}{c()}\end{align}$</p>
+<p>，其中$c()$表示训练语料库单词总数。线性插值法采用上述三种估算的加权平均值，即$q(w|u,v)=\lambda_1\times q_{ML}(w|u,v)+\lambda_3\times q_{ML}(w|v)+\lambda_2\times q_{ML}(w)$，其中$\lambda_1、\lambda_2、\lambda_3$是我们对上述三种估算赋予的权重，其基本要求是：</p>
+<ol>
+<li>$\lambda_1、\lambda_2、\lambda_3\geq0$</li>
+<li>$\lambda_1+\lambda_2+\lambda_3=1$</li>
+</ol>
+<p>关于如何计算出$\lambda_1、\lambda_2、\lambda_3$的值，一个常见的方法(maximizing log-likelihood)如下：</p>
+<p>首先我们需要有一个开发集(development data)，不属于训练和测试语料库，而是预先留出来的另一部分数据。$c’(u,v,w)$表示$(u,v,w)$在开发集中出现的次数，定义</p>
+<p>$\begin{align}L(\lambda_1,\lambda_2,\lambda_3)&amp;=\sum\limits_{u,v,w}c’(u,v,w)\log q(w|u,v)\\&amp;=\sum\limits_{u,v,w}c’(u,v,w)\log(\lambda_1\times q_{ML}(w|u,v)+\lambda_3\times q_{ML}(w|v)+\lambda_2\times q_{ML}(w))\end{align}$</p>
+<p>目标函数：$\arg \max\limits_{\lambda_1,\lambda_2,\lambda_3}L(\lambda_1,\lambda_2,\lambda_3)$</p>
+<p>实践中，我们经常添加一个自由度，允许$\lambda_1、\lambda_2、\lambda_3$随$(u,v)$变化，我们之后会讲带桶的线性插值法，此处先举一个简单的例子：</p>
+<p>$\lambda_1=\frac{c(u,v)}{c(u,v)+\lambda}\\\lambda_2=(1-\lambda_1)\times\frac{c(v)}{c(v)+\lambda}\\\lambda_3=1-\lambda_2-\lambda_3$</p>
+<p>计算$\lambda$的方法同上，maximizing log-likelihood。</p>
+<h3 id="折扣法"><a href="#折扣法" class="headerlink" title="折扣法"></a>折扣法</h3><p>对二元文法模型，计算$q(w|v)$时：</p>
+<p>对$\forall v$，定义集合$A(v)=\{w|c(v,w)&gt;0\}$、$B(v)=\{w|c(v,w)=0\}$</p>
+<p>$q(w|v)=\begin{cases}\frac{c^\ast(v,w)}{c(v)},\qquad\qquad w\in A(v)\\\alpha(v)\times \frac{q(w)}{\sum\limits_{w\in B(v)}q(w)},w\in B(v)\end{cases}$</p>
+<p>其中$c^\ast(v,w)=c(v,w)-\beta$，$\alpha(v)=1-\sum\limits_{w\in A(v)}\frac{c^\ast(v,w)}{c(v)}$.</p>
+<p>对三元文法模型，同样地，</p>
+<p>$q(w|u,v)=\begin{cases}\frac{c^\ast(u,v,w)}{c(u,v)},\qquad\qquad\quad\  w\in A(u,v)\\\alpha(u,v)\times \frac{q(v,w)}{\sum\limits_{w\in B(u,v)}q(v,w)},w\in B(u,v)\end{cases}$</p>
+<p>注：$q(w)$可以用$q_{ML}(w)=\frac{c(w)}{c()}$直接计算，对于单个单词，在实践中数据稀疏影响不大。</p>
+<p>$\beta$可以简单取个$0.5$，也可以用maximizing log-likelihood在$(0,1)$上取个值。</p>
+<h3 id="带桶的线性插值法"><a href="#带桶的线性插值法" class="headerlink" title="带桶的线性插值法"></a>带桶的线性插值法</h3><p>根据$c(u,v)、c(v)$的值把$(u,v)$划分为不同的子集，每个子集有自己的$\lambda_1、\lambda_2、\lambda_3$，仍然是使用</p>
+<p>maximizing log-likelihood计算出这些$\lambda_1、\lambda_2、\lambda_3$。</p>
+<p>（完）</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.cs.columbia.edu/~mcollins/cs4705-spring2020/" target="_blank" rel="noopener">NLP by Michael Collins, Columbia University</a></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>1180300308-刘义
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://dongbaiyue.github.io/2020/10/15/NLP/" title="自然语言处理（一）：语言模型">https://dongbaiyue.github.io/2020/10/15/NLP/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" rel="tag"># 自然语言处理</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/29/node-sass/" rel="prev" title="无法连接到node-sass的一种情况">
+      <i class="fa fa-chevron-left"></i> 无法连接到node-sass的一种情况
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Language-Modeling"><span class="nav-number">1.</span> <span class="nav-text">Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Markov模型："><span class="nav-number">1.1.</span> <span class="nav-text">Markov模型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trigram-Language-Models-三元文法模型"><span class="nav-number">1.2.</span> <span class="nav-text">Trigram Language Models(三元文法模型)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言模型的评估指标：困惑度"><span class="nav-number">1.3.</span> <span class="nav-text">语言模型的评估指标：困惑度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据平滑"><span class="nav-number">1.4.</span> <span class="nav-text">数据平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线性插值法"><span class="nav-number">1.4.1.</span> <span class="nav-text">线性插值法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折扣法"><span class="nav-number">1.4.2.</span> <span class="nav-text">折扣法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带桶的线性插值法"><span class="nav-number">1.4.3.</span> <span class="nav-text">带桶的线性插值法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="1180300308-刘义"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">1180300308-刘义</p>
+  <div class="site-description" itemprop="description">这里是东百月的园地</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/dongbaiyue" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;dongbaiyue" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/dong-bai-yue-69" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;dong-bai-yue-69" rel="noopener" target="_blank"><i class="fab fa-zhihu fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2681514899@qq.com" title="E-Mail → mailto:2681514899@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">1180300308-刘义</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'mcAf4MCU7LoDcVSt7UrEUOqa-MdYXbMMI',
+      appKey     : 'auKPdtKuG2HM2Ffbpu17U83N',
+      placeholder: "来说点什么吧~",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
+
+<!-- 文件位置：~/theme/next/layout/_layout.swig -->
+
+<script type="text/javascript" src="/js/clicklove.js"></script>
